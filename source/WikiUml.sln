@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WikiUml", "WikiUml\WikiUml.csproj", "{ABE40483-D12D-46CE-B700-7806FD26E3F0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WikiUml.Test", "WikiUml.Test\WikiUml.Test.csproj", "{1B4491CF-E465-48CA-9AAE-43DC731163E5}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{ABE40483-D12D-46CE-B700-7806FD26E3F0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ABE40483-D12D-46CE-B700-7806FD26E3F0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ABE40483-D12D-46CE-B700-7806FD26E3F0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ABE40483-D12D-46CE-B700-7806FD26E3F0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1B4491CF-E465-48CA-9AAE-43DC731163E5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1B4491CF-E465-48CA-9AAE-43DC731163E5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1B4491CF-E465-48CA-9AAE-43DC731163E5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1B4491CF-E465-48CA-9AAE-43DC731163E5}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
