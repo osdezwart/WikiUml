@@ -5,6 +5,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WikiUml", "WikiUml\WikiUml.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WikiUml.Test", "WikiUml.Test\WikiUml.Test.csproj", "{1B4491CF-E465-48CA-9AAE-43DC731163E5}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{C7AB86C9-48B0-430F-916D-3098AC44BA4B}"
+	ProjectSection(SolutionItems) = preProject
+		..\README.markdown = ..\README.markdown
+		Grammar\WikiUml.g = Grammar\WikiUml.g
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

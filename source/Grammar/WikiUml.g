@@ -1,60 +1,27 @@
 grammar WikiUml;
 
-options
-{
-    language=CSharp2;
+options {
+  language=CSharp2;
+  output=AST;
 }
 
 tokens {
-    GET='get';
-    PUT='put';
-    CHANGE='change';
-    DATA='data';
-    METADATA='metadata';
-    DEPENDENCIES='dependencies';
-    DEPENDENTS='dependents';
-    STATISTICS='statistics';
-    FROM='from';
-    IN='in';
-    ABOUT='about';
-    OF='of';
+    ROOT;
+    UMLCLASS='umlclass';
 }
 
-command
-    :    sentence (NEWLINE sentence)* NEWLINE? EOF
-    |
+@parser::namespace { WikiUml }
+@lexer::namespace { WikiUml }
+
+parse
+  :  umlclass EOF -> ^(ROOT umlclass)
+  ;
+
+umlclass
+    :    WS? '['ID']' WS?
     ;
 
-sentence
-    :    WS? verb WS object WS preposition WS target WS?
-    ;
-
-verb
-    :    GET
-    |    PUT
-    |    CHANGE
-    ;
-
-object
-    :    DATA
-    |    METADATA
-    |    DEPENDENCIES
-    |    DEPENDENTS
-    |    STATISTICS
-    ;
-
-preposition
-    :    FROM
-    |    IN
-    |    ABOUT
-    |    OF
-    ;
-
-target
-    :    FILE
-    ;
-
-FILE
+ID
     : ('a'..'z'|'A'..'Z'|'0'..'9'|'.')+
     ;
 
