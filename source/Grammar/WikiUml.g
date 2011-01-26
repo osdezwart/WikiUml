@@ -2,33 +2,56 @@ grammar WikiUml;
 
 options {
   language=CSharp2;
-  output=AST;
-}
-
-tokens {
-    ROOT;
-    UMLCLASS='umlclass';
 }
 
 @parser::namespace { WikiUml }
 @lexer::namespace { WikiUml }
 
-parse
-  :  umlclass EOF -> ^(ROOT umlclass)
-  ;
+@header {
+using System.Collections.Generic;
+}
 
-umlclass
-    :    WS? '['ID']' WS?
+diagram returns [Diagram result] 
+@init {
+	result = new Diagram();
+} : (u = umlclass NEWLINE) { $result.umlClasses.Add(u);} | ;
+
+umlclass returns [UmlClass result] 
+@init {
+	result = new UmlClass();
+} : LBRACK f = ID mem = members met = methods RBRACK { $result.Name = $f.text; $result.Members.AddRange(mem); $result.Methods.AddRange(met);}  ;
+
+members returns [List<Member> members] @init{members = new List<Member>();} :	SECTIONSEPPERATOR (m = member ';'?)*{members.Add(m);};
+member 	returns [Member member] @init{member = new Member();}:	i = ID {member.Name = $i.text;};
+
+methods returns [List<Method> methods] @init{methods = new List<Method>();} :	SECTIONSEPPERATOR (m = method ';'?)*{methods.Add(m);};
+method 	returns [Method method] @init{method = new Method();} :	m = ID'('')'{method.Name= $m.text;};
+
+RBRACK 	:	 ']';
+LBRACK 	:	 '[';
+SECTIONSEPPERATOR : '|';
+
+
+NEWLINE	:	'\r'? '\n';
+
+ID	:  (  VALIDSTR
+        | NUMBER
+       );
+       
+fragment ALPHACHAR 
+	:  (   'a'..'z'
+        |  'A'..'Z'
+        |  '_'
+       );
+
+	   
+fragment VALIDSTR
+    :  ALPHACHAR
+        (  ALPHACHAR
+         |  '0'..'9'
+        )*
     ;
 
-ID
-    : ('a'..'z'|'A'..'Z'|'0'..'9'|'.')+
-    ;
-
-NEWLINE
-    : '\r'? '\n'
-    ;
-
-WS
-    : (' '|'\t'|'\n'|'\r')+ {skip();}
+fragment NUMBER
+    :  ('-')? ('0'..'9')+ ('.' ('0'..'9')+)?
     ;

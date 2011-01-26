@@ -1,4 +1,4 @@
-// $ANTLR 3.1.1 D:\\Olle\\Projects\\WikiUml\\source\\Grammar\\WikiUml.g 2011-01-24 23:39:30
+// $ANTLR 3.1.1 D:\\Olle\\Projects\\WikiUml\\source\\Grammar\\WikiUml.g 2011-01-26 22:12:09
 // The variable 'variable' is assigned but its value is never used.
 #pragma warning disable 168, 219
 // Unreachable code detected.
@@ -14,14 +14,18 @@ using Stack 		= Antlr.Runtime.Collections.StackList;
 
 
 public partial class WikiUmlLexer : Lexer {
-    public const int WS = 6;
-    public const int NEWLINE = 8;
-    public const int T__10 = 10;
-    public const int UMLCLASS = 5;
-    public const int ID = 7;
+    public const int RBRACK = 7;
+    public const int LBRACK = 5;
+    public const int NEWLINE = 4;
+    public const int T__12 = 12;
+    public const int T__14 = 14;
+    public const int T__13 = 13;
+    public const int NUMBER = 10;
+    public const int ALPHACHAR = 11;
+    public const int SECTIONSEPPERATOR = 8;
+    public const int ID = 6;
     public const int EOF = -1;
-    public const int ROOT = 4;
-    public const int T__9 = 9;
+    public const int VALIDSTR = 9;
 
     // delegates
     // delegators
@@ -44,18 +48,17 @@ public partial class WikiUmlLexer : Lexer {
     	get { return "D:\\Olle\\Projects\\WikiUml\\source\\Grammar\\WikiUml.g";} 
     }
 
-    // $ANTLR start "UMLCLASS"
-    public void mUMLCLASS() // throws RecognitionException [2]
+    // $ANTLR start "T__12"
+    public void mT__12() // throws RecognitionException [2]
     {
     		try
     		{
-            int _type = UMLCLASS;
+            int _type = T__12;
     	int _channel = DEFAULT_TOKEN_CHANNEL;
-            // D:\\Olle\\Projects\\WikiUml\\source\\Grammar\\WikiUml.g:9:10: ( 'umlclass' )
-            // D:\\Olle\\Projects\\WikiUml\\source\\Grammar\\WikiUml.g:9:12: 'umlclass'
+            // D:\\Olle\\Projects\\WikiUml\\source\\Grammar\\WikiUml.g:9:7: ( ';' )
+            // D:\\Olle\\Projects\\WikiUml\\source\\Grammar\\WikiUml.g:9:9: ';'
             {
-            	Match("umlclass"); 
-
+            	Match(';'); 
 
             }
 
@@ -66,19 +69,19 @@ public partial class WikiUmlLexer : Lexer {
     	{
         }
     }
-    // $ANTLR end "UMLCLASS"
+    // $ANTLR end "T__12"
 
-    // $ANTLR start "T__9"
-    public void mT__9() // throws RecognitionException [2]
+    // $ANTLR start "T__13"
+    public void mT__13() // throws RecognitionException [2]
     {
     		try
     		{
-            int _type = T__9;
+            int _type = T__13;
     	int _channel = DEFAULT_TOKEN_CHANNEL;
-            // D:\\Olle\\Projects\\WikiUml\\source\\Grammar\\WikiUml.g:10:6: ( '[' )
-            // D:\\Olle\\Projects\\WikiUml\\source\\Grammar\\WikiUml.g:10:8: '['
+            // D:\\Olle\\Projects\\WikiUml\\source\\Grammar\\WikiUml.g:10:7: ( '(' )
+            // D:\\Olle\\Projects\\WikiUml\\source\\Grammar\\WikiUml.g:10:9: '('
             {
-            	Match('['); 
+            	Match('('); 
 
             }
 
@@ -89,17 +92,40 @@ public partial class WikiUmlLexer : Lexer {
     	{
         }
     }
-    // $ANTLR end "T__9"
+    // $ANTLR end "T__13"
 
-    // $ANTLR start "T__10"
-    public void mT__10() // throws RecognitionException [2]
+    // $ANTLR start "T__14"
+    public void mT__14() // throws RecognitionException [2]
     {
     		try
     		{
-            int _type = T__10;
+            int _type = T__14;
     	int _channel = DEFAULT_TOKEN_CHANNEL;
-            // D:\\Olle\\Projects\\WikiUml\\source\\Grammar\\WikiUml.g:11:7: ( ']' )
-            // D:\\Olle\\Projects\\WikiUml\\source\\Grammar\\WikiUml.g:11:9: ']'
+            // D:\\Olle\\Projects\\WikiUml\\source\\Grammar\\WikiUml.g:11:7: ( ')' )
+            // D:\\Olle\\Projects\\WikiUml\\source\\Grammar\\WikiUml.g:11:9: ')'
+            {
+            	Match(')'); 
+
+            }
+
+            state.type = _type;
+            state.channel = _channel;
+        }
+        finally 
+    	{
+        }
+    }
+    // $ANTLR end "T__14"
+
+    // $ANTLR start "RBRACK"
+    public void mRBRACK() // throws RecognitionException [2]
+    {
+    		try
+    		{
+            int _type = RBRACK;
+    	int _channel = DEFAULT_TOKEN_CHANNEL;
+            // D:\\Olle\\Projects\\WikiUml\\source\\Grammar\\WikiUml.g:30:9: ( ']' )
+            // D:\\Olle\\Projects\\WikiUml\\source\\Grammar\\WikiUml.g:30:12: ']'
             {
             	Match(']'); 
 
@@ -112,63 +138,19 @@ public partial class WikiUmlLexer : Lexer {
     	{
         }
     }
-    // $ANTLR end "T__10"
+    // $ANTLR end "RBRACK"
 
-    // $ANTLR start "ID"
-    public void mID() // throws RecognitionException [2]
+    // $ANTLR start "LBRACK"
+    public void mLBRACK() // throws RecognitionException [2]
     {
     		try
     		{
-            int _type = ID;
+            int _type = LBRACK;
     	int _channel = DEFAULT_TOKEN_CHANNEL;
-            // D:\\Olle\\Projects\\WikiUml\\source\\Grammar\\WikiUml.g:25:5: ( ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' | '.' )+ )
-            // D:\\Olle\\Projects\\WikiUml\\source\\Grammar\\WikiUml.g:25:7: ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' | '.' )+
+            // D:\\Olle\\Projects\\WikiUml\\source\\Grammar\\WikiUml.g:31:9: ( '[' )
+            // D:\\Olle\\Projects\\WikiUml\\source\\Grammar\\WikiUml.g:31:12: '['
             {
-            	// D:\\Olle\\Projects\\WikiUml\\source\\Grammar\\WikiUml.g:25:7: ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' | '.' )+
-            	int cnt1 = 0;
-            	do 
-            	{
-            	    int alt1 = 2;
-            	    int LA1_0 = input.LA(1);
-
-            	    if ( (LA1_0 == '.' || (LA1_0 >= '0' && LA1_0 <= '9') || (LA1_0 >= 'A' && LA1_0 <= 'Z') || (LA1_0 >= 'a' && LA1_0 <= 'z')) )
-            	    {
-            	        alt1 = 1;
-            	    }
-
-
-            	    switch (alt1) 
-            		{
-            			case 1 :
-            			    // D:\\Olle\\Projects\\WikiUml\\source\\Grammar\\WikiUml.g:
-            			    {
-            			    	if ( input.LA(1) == '.' || (input.LA(1) >= '0' && input.LA(1) <= '9') || (input.LA(1) >= 'A' && input.LA(1) <= 'Z') || (input.LA(1) >= 'a' && input.LA(1) <= 'z') ) 
-            			    	{
-            			    	    input.Consume();
-
-            			    	}
-            			    	else 
-            			    	{
-            			    	    MismatchedSetException mse = new MismatchedSetException(null,input);
-            			    	    Recover(mse);
-            			    	    throw mse;}
-
-
-            			    }
-            			    break;
-
-            			default:
-            			    if ( cnt1 >= 1 ) goto loop1;
-            		            EarlyExitException eee =
-            		                new EarlyExitException(1, input);
-            		            throw eee;
-            	    }
-            	    cnt1++;
-            	} while (true);
-
-            	loop1:
-            		;	// Stops C# compiler whinging that label 'loop1' has no statements
-
+            	Match('['); 
 
             }
 
@@ -179,7 +161,30 @@ public partial class WikiUmlLexer : Lexer {
     	{
         }
     }
-    // $ANTLR end "ID"
+    // $ANTLR end "LBRACK"
+
+    // $ANTLR start "SECTIONSEPPERATOR"
+    public void mSECTIONSEPPERATOR() // throws RecognitionException [2]
+    {
+    		try
+    		{
+            int _type = SECTIONSEPPERATOR;
+    	int _channel = DEFAULT_TOKEN_CHANNEL;
+            // D:\\Olle\\Projects\\WikiUml\\source\\Grammar\\WikiUml.g:32:19: ( '|' )
+            // D:\\Olle\\Projects\\WikiUml\\source\\Grammar\\WikiUml.g:32:21: '|'
+            {
+            	Match('|'); 
+
+            }
+
+            state.type = _type;
+            state.channel = _channel;
+        }
+        finally 
+    	{
+        }
+    }
+    // $ANTLR end "SECTIONSEPPERATOR"
 
     // $ANTLR start "NEWLINE"
     public void mNEWLINE() // throws RecognitionException [2]
@@ -188,21 +193,21 @@ public partial class WikiUmlLexer : Lexer {
     		{
             int _type = NEWLINE;
     	int _channel = DEFAULT_TOKEN_CHANNEL;
-            // D:\\Olle\\Projects\\WikiUml\\source\\Grammar\\WikiUml.g:29:5: ( ( '\\r' )? '\\n' )
-            // D:\\Olle\\Projects\\WikiUml\\source\\Grammar\\WikiUml.g:29:7: ( '\\r' )? '\\n'
+            // D:\\Olle\\Projects\\WikiUml\\source\\Grammar\\WikiUml.g:35:9: ( ( '\\r' )? '\\n' )
+            // D:\\Olle\\Projects\\WikiUml\\source\\Grammar\\WikiUml.g:35:11: ( '\\r' )? '\\n'
             {
-            	// D:\\Olle\\Projects\\WikiUml\\source\\Grammar\\WikiUml.g:29:7: ( '\\r' )?
-            	int alt2 = 2;
-            	int LA2_0 = input.LA(1);
+            	// D:\\Olle\\Projects\\WikiUml\\source\\Grammar\\WikiUml.g:35:11: ( '\\r' )?
+            	int alt1 = 2;
+            	int LA1_0 = input.LA(1);
 
-            	if ( (LA2_0 == '\r') )
+            	if ( (LA1_0 == '\r') )
             	{
-            	    alt2 = 1;
+            	    alt1 = 1;
             	}
-            	switch (alt2) 
+            	switch (alt1) 
             	{
             	    case 1 :
-            	        // D:\\Olle\\Projects\\WikiUml\\source\\Grammar\\WikiUml.g:29:7: '\\r'
+            	        // D:\\Olle\\Projects\\WikiUml\\source\\Grammar\\WikiUml.g:35:11: '\\r'
             	        {
             	        	Match('\r'); 
 
@@ -224,24 +229,111 @@ public partial class WikiUmlLexer : Lexer {
     }
     // $ANTLR end "NEWLINE"
 
-    // $ANTLR start "WS"
-    public void mWS() // throws RecognitionException [2]
+    // $ANTLR start "ID"
+    public void mID() // throws RecognitionException [2]
     {
     		try
     		{
-            int _type = WS;
+            int _type = ID;
     	int _channel = DEFAULT_TOKEN_CHANNEL;
-            // D:\\Olle\\Projects\\WikiUml\\source\\Grammar\\WikiUml.g:33:5: ( ( ' ' | '\\t' | '\\n' | '\\r' )+ )
-            // D:\\Olle\\Projects\\WikiUml\\source\\Grammar\\WikiUml.g:33:7: ( ' ' | '\\t' | '\\n' | '\\r' )+
+            // D:\\Olle\\Projects\\WikiUml\\source\\Grammar\\WikiUml.g:37:4: ( ( VALIDSTR | NUMBER ) )
+            // D:\\Olle\\Projects\\WikiUml\\source\\Grammar\\WikiUml.g:37:7: ( VALIDSTR | NUMBER )
             {
-            	// D:\\Olle\\Projects\\WikiUml\\source\\Grammar\\WikiUml.g:33:7: ( ' ' | '\\t' | '\\n' | '\\r' )+
-            	int cnt3 = 0;
+            	// D:\\Olle\\Projects\\WikiUml\\source\\Grammar\\WikiUml.g:37:7: ( VALIDSTR | NUMBER )
+            	int alt2 = 2;
+            	int LA2_0 = input.LA(1);
+
+            	if ( ((LA2_0 >= 'A' && LA2_0 <= 'Z') || LA2_0 == '_' || (LA2_0 >= 'a' && LA2_0 <= 'z')) )
+            	{
+            	    alt2 = 1;
+            	}
+            	else if ( (LA2_0 == '-' || (LA2_0 >= '0' && LA2_0 <= '9')) )
+            	{
+            	    alt2 = 2;
+            	}
+            	else 
+            	{
+            	    NoViableAltException nvae_d2s0 =
+            	        new NoViableAltException("", 2, 0, input);
+
+            	    throw nvae_d2s0;
+            	}
+            	switch (alt2) 
+            	{
+            	    case 1 :
+            	        // D:\\Olle\\Projects\\WikiUml\\source\\Grammar\\WikiUml.g:37:10: VALIDSTR
+            	        {
+            	        	mVALIDSTR(); 
+
+            	        }
+            	        break;
+            	    case 2 :
+            	        // D:\\Olle\\Projects\\WikiUml\\source\\Grammar\\WikiUml.g:38:11: NUMBER
+            	        {
+            	        	mNUMBER(); 
+
+            	        }
+            	        break;
+
+            	}
+
+
+            }
+
+            state.type = _type;
+            state.channel = _channel;
+        }
+        finally 
+    	{
+        }
+    }
+    // $ANTLR end "ID"
+
+    // $ANTLR start "ALPHACHAR"
+    public void mALPHACHAR() // throws RecognitionException [2]
+    {
+    		try
+    		{
+            // D:\\Olle\\Projects\\WikiUml\\source\\Grammar\\WikiUml.g:42:2: ( ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) )
+            // D:\\Olle\\Projects\\WikiUml\\source\\Grammar\\WikiUml.g:42:5: ( 'a' .. 'z' | 'A' .. 'Z' | '_' )
+            {
+            	if ( (input.LA(1) >= 'A' && input.LA(1) <= 'Z') || input.LA(1) == '_' || (input.LA(1) >= 'a' && input.LA(1) <= 'z') ) 
+            	{
+            	    input.Consume();
+
+            	}
+            	else 
+            	{
+            	    MismatchedSetException mse = new MismatchedSetException(null,input);
+            	    Recover(mse);
+            	    throw mse;}
+
+
+            }
+
+        }
+        finally 
+    	{
+        }
+    }
+    // $ANTLR end "ALPHACHAR"
+
+    // $ANTLR start "VALIDSTR"
+    public void mVALIDSTR() // throws RecognitionException [2]
+    {
+    		try
+    		{
+            // D:\\Olle\\Projects\\WikiUml\\source\\Grammar\\WikiUml.g:49:5: ( ALPHACHAR ( ALPHACHAR | '0' .. '9' )* )
+            // D:\\Olle\\Projects\\WikiUml\\source\\Grammar\\WikiUml.g:49:8: ALPHACHAR ( ALPHACHAR | '0' .. '9' )*
+            {
+            	mALPHACHAR(); 
+            	// D:\\Olle\\Projects\\WikiUml\\source\\Grammar\\WikiUml.g:50:9: ( ALPHACHAR | '0' .. '9' )*
             	do 
             	{
             	    int alt3 = 2;
             	    int LA3_0 = input.LA(1);
 
-            	    if ( ((LA3_0 >= '\t' && LA3_0 <= '\n') || LA3_0 == '\r' || LA3_0 == ' ') )
+            	    if ( ((LA3_0 >= '0' && LA3_0 <= '9') || (LA3_0 >= 'A' && LA3_0 <= 'Z') || LA3_0 == '_' || (LA3_0 >= 'a' && LA3_0 <= 'z')) )
             	    {
             	        alt3 = 1;
             	    }
@@ -252,7 +344,7 @@ public partial class WikiUmlLexer : Lexer {
             			case 1 :
             			    // D:\\Olle\\Projects\\WikiUml\\source\\Grammar\\WikiUml.g:
             			    {
-            			    	if ( (input.LA(1) >= '\t' && input.LA(1) <= '\n') || input.LA(1) == '\r' || input.LA(1) == ' ' ) 
+            			    	if ( (input.LA(1) >= '0' && input.LA(1) <= '9') || (input.LA(1) >= 'A' && input.LA(1) <= 'Z') || input.LA(1) == '_' || (input.LA(1) >= 'a' && input.LA(1) <= 'z') ) 
             			    	{
             			    	    input.Consume();
 
@@ -268,76 +360,323 @@ public partial class WikiUmlLexer : Lexer {
             			    break;
 
             			default:
-            			    if ( cnt3 >= 1 ) goto loop3;
-            		            EarlyExitException eee =
-            		                new EarlyExitException(3, input);
-            		            throw eee;
+            			    goto loop3;
             	    }
-            	    cnt3++;
             	} while (true);
 
             	loop3:
-            		;	// Stops C# compiler whinging that label 'loop3' has no statements
+            		;	// Stops C# compiler whining that label 'loop3' has no statements
 
-            	//skip();
 
             }
 
-            state.type = _type;
-            state.channel = _channel;
         }
         finally 
     	{
         }
     }
-    // $ANTLR end "WS"
+    // $ANTLR end "VALIDSTR"
+
+    // $ANTLR start "NUMBER"
+    public void mNUMBER() // throws RecognitionException [2]
+    {
+    		try
+    		{
+            // D:\\Olle\\Projects\\WikiUml\\source\\Grammar\\WikiUml.g:56:5: ( ( '-' )? ( '0' .. '9' )+ ( '.' ( '0' .. '9' )+ )? )
+            // D:\\Olle\\Projects\\WikiUml\\source\\Grammar\\WikiUml.g:56:8: ( '-' )? ( '0' .. '9' )+ ( '.' ( '0' .. '9' )+ )?
+            {
+            	// D:\\Olle\\Projects\\WikiUml\\source\\Grammar\\WikiUml.g:56:8: ( '-' )?
+            	int alt4 = 2;
+            	int LA4_0 = input.LA(1);
+
+            	if ( (LA4_0 == '-') )
+            	{
+            	    alt4 = 1;
+            	}
+            	switch (alt4) 
+            	{
+            	    case 1 :
+            	        // D:\\Olle\\Projects\\WikiUml\\source\\Grammar\\WikiUml.g:56:9: '-'
+            	        {
+            	        	Match('-'); 
+
+            	        }
+            	        break;
+
+            	}
+
+            	// D:\\Olle\\Projects\\WikiUml\\source\\Grammar\\WikiUml.g:56:15: ( '0' .. '9' )+
+            	int cnt5 = 0;
+            	do 
+            	{
+            	    int alt5 = 2;
+            	    int LA5_0 = input.LA(1);
+
+            	    if ( ((LA5_0 >= '0' && LA5_0 <= '9')) )
+            	    {
+            	        alt5 = 1;
+            	    }
+
+
+            	    switch (alt5) 
+            		{
+            			case 1 :
+            			    // D:\\Olle\\Projects\\WikiUml\\source\\Grammar\\WikiUml.g:56:16: '0' .. '9'
+            			    {
+            			    	MatchRange('0','9'); 
+
+            			    }
+            			    break;
+
+            			default:
+            			    if ( cnt5 >= 1 ) goto loop5;
+            		            EarlyExitException eee =
+            		                new EarlyExitException(5, input);
+            		            throw eee;
+            	    }
+            	    cnt5++;
+            	} while (true);
+
+            	loop5:
+            		;	// Stops C# compiler whinging that label 'loop5' has no statements
+
+            	// D:\\Olle\\Projects\\WikiUml\\source\\Grammar\\WikiUml.g:56:27: ( '.' ( '0' .. '9' )+ )?
+            	int alt7 = 2;
+            	int LA7_0 = input.LA(1);
+
+            	if ( (LA7_0 == '.') )
+            	{
+            	    alt7 = 1;
+            	}
+            	switch (alt7) 
+            	{
+            	    case 1 :
+            	        // D:\\Olle\\Projects\\WikiUml\\source\\Grammar\\WikiUml.g:56:28: '.' ( '0' .. '9' )+
+            	        {
+            	        	Match('.'); 
+            	        	// D:\\Olle\\Projects\\WikiUml\\source\\Grammar\\WikiUml.g:56:32: ( '0' .. '9' )+
+            	        	int cnt6 = 0;
+            	        	do 
+            	        	{
+            	        	    int alt6 = 2;
+            	        	    int LA6_0 = input.LA(1);
+
+            	        	    if ( ((LA6_0 >= '0' && LA6_0 <= '9')) )
+            	        	    {
+            	        	        alt6 = 1;
+            	        	    }
+
+
+            	        	    switch (alt6) 
+            	        		{
+            	        			case 1 :
+            	        			    // D:\\Olle\\Projects\\WikiUml\\source\\Grammar\\WikiUml.g:56:33: '0' .. '9'
+            	        			    {
+            	        			    	MatchRange('0','9'); 
+
+            	        			    }
+            	        			    break;
+
+            	        			default:
+            	        			    if ( cnt6 >= 1 ) goto loop6;
+            	        		            EarlyExitException eee =
+            	        		                new EarlyExitException(6, input);
+            	        		            throw eee;
+            	        	    }
+            	        	    cnt6++;
+            	        	} while (true);
+
+            	        	loop6:
+            	        		;	// Stops C# compiler whinging that label 'loop6' has no statements
+
+
+            	        }
+            	        break;
+
+            	}
+
+
+            }
+
+        }
+        finally 
+    	{
+        }
+    }
+    // $ANTLR end "NUMBER"
 
     override public void mTokens() // throws RecognitionException 
     {
-        // D:\\Olle\\Projects\\WikiUml\\source\\Grammar\\WikiUml.g:1:8: ( UMLCLASS | T__9 | T__10 | ID | NEWLINE | WS )
-        int alt4 = 6;
-        alt4 = dfa4.Predict(input);
-        switch (alt4) 
+        // D:\\Olle\\Projects\\WikiUml\\source\\Grammar\\WikiUml.g:1:8: ( T__12 | T__13 | T__14 | RBRACK | LBRACK | SECTIONSEPPERATOR | NEWLINE | ID )
+        int alt8 = 8;
+        switch ( input.LA(1) ) 
+        {
+        case ';':
+        	{
+            alt8 = 1;
+            }
+            break;
+        case '(':
+        	{
+            alt8 = 2;
+            }
+            break;
+        case ')':
+        	{
+            alt8 = 3;
+            }
+            break;
+        case ']':
+        	{
+            alt8 = 4;
+            }
+            break;
+        case '[':
+        	{
+            alt8 = 5;
+            }
+            break;
+        case '|':
+        	{
+            alt8 = 6;
+            }
+            break;
+        case '\n':
+        case '\r':
+        	{
+            alt8 = 7;
+            }
+            break;
+        case '-':
+        case '0':
+        case '1':
+        case '2':
+        case '3':
+        case '4':
+        case '5':
+        case '6':
+        case '7':
+        case '8':
+        case '9':
+        case 'A':
+        case 'B':
+        case 'C':
+        case 'D':
+        case 'E':
+        case 'F':
+        case 'G':
+        case 'H':
+        case 'I':
+        case 'J':
+        case 'K':
+        case 'L':
+        case 'M':
+        case 'N':
+        case 'O':
+        case 'P':
+        case 'Q':
+        case 'R':
+        case 'S':
+        case 'T':
+        case 'U':
+        case 'V':
+        case 'W':
+        case 'X':
+        case 'Y':
+        case 'Z':
+        case '_':
+        case 'a':
+        case 'b':
+        case 'c':
+        case 'd':
+        case 'e':
+        case 'f':
+        case 'g':
+        case 'h':
+        case 'i':
+        case 'j':
+        case 'k':
+        case 'l':
+        case 'm':
+        case 'n':
+        case 'o':
+        case 'p':
+        case 'q':
+        case 'r':
+        case 's':
+        case 't':
+        case 'u':
+        case 'v':
+        case 'w':
+        case 'x':
+        case 'y':
+        case 'z':
+        	{
+            alt8 = 8;
+            }
+            break;
+        	default:
+        	    NoViableAltException nvae_d8s0 =
+        	        new NoViableAltException("", 8, 0, input);
+
+        	    throw nvae_d8s0;
+        }
+
+        switch (alt8) 
         {
             case 1 :
-                // D:\\Olle\\Projects\\WikiUml\\source\\Grammar\\WikiUml.g:1:10: UMLCLASS
+                // D:\\Olle\\Projects\\WikiUml\\source\\Grammar\\WikiUml.g:1:10: T__12
                 {
-                	mUMLCLASS(); 
+                	mT__12(); 
 
                 }
                 break;
             case 2 :
-                // D:\\Olle\\Projects\\WikiUml\\source\\Grammar\\WikiUml.g:1:19: T__9
+                // D:\\Olle\\Projects\\WikiUml\\source\\Grammar\\WikiUml.g:1:16: T__13
                 {
-                	mT__9(); 
+                	mT__13(); 
 
                 }
                 break;
             case 3 :
-                // D:\\Olle\\Projects\\WikiUml\\source\\Grammar\\WikiUml.g:1:24: T__10
+                // D:\\Olle\\Projects\\WikiUml\\source\\Grammar\\WikiUml.g:1:22: T__14
                 {
-                	mT__10(); 
+                	mT__14(); 
 
                 }
                 break;
             case 4 :
-                // D:\\Olle\\Projects\\WikiUml\\source\\Grammar\\WikiUml.g:1:30: ID
+                // D:\\Olle\\Projects\\WikiUml\\source\\Grammar\\WikiUml.g:1:28: RBRACK
                 {
-                	mID(); 
+                	mRBRACK(); 
 
                 }
                 break;
             case 5 :
-                // D:\\Olle\\Projects\\WikiUml\\source\\Grammar\\WikiUml.g:1:33: NEWLINE
+                // D:\\Olle\\Projects\\WikiUml\\source\\Grammar\\WikiUml.g:1:35: LBRACK
+                {
+                	mLBRACK(); 
+
+                }
+                break;
+            case 6 :
+                // D:\\Olle\\Projects\\WikiUml\\source\\Grammar\\WikiUml.g:1:42: SECTIONSEPPERATOR
+                {
+                	mSECTIONSEPPERATOR(); 
+
+                }
+                break;
+            case 7 :
+                // D:\\Olle\\Projects\\WikiUml\\source\\Grammar\\WikiUml.g:1:60: NEWLINE
                 {
                 	mNEWLINE(); 
 
                 }
                 break;
-            case 6 :
-                // D:\\Olle\\Projects\\WikiUml\\source\\Grammar\\WikiUml.g:1:41: WS
+            case 8 :
+                // D:\\Olle\\Projects\\WikiUml\\source\\Grammar\\WikiUml.g:1:68: ID
                 {
-                	mWS(); 
+                	mID(); 
 
                 }
                 break;
@@ -347,81 +686,9 @@ public partial class WikiUmlLexer : Lexer {
     }
 
 
-    protected DFA4 dfa4;
 	private void InitializeCyclicDFAs()
 	{
-	    this.dfa4 = new DFA4(this);
 	}
-
-    const string DFA4_eotS =
-        "\x01\uffff\x01\x04\x03\uffff\x01\x07\x01\x09\x01\uffff\x01\x04"+
-        "\x01\uffff\x05\x04\x01\x10\x01\uffff";
-    const string DFA4_eofS =
-        "\x11\uffff";
-    const string DFA4_minS =
-        "\x01\x09\x01\x6d\x03\uffff\x01\x0a\x01\x09\x01\uffff\x01\x6c\x01"+
-        "\uffff\x01\x63\x01\x6c\x01\x61\x02\x73\x01\x2e\x01\uffff";
-    const string DFA4_maxS =
-        "\x01\x7a\x01\x6d\x03\uffff\x01\x0a\x01\x20\x01\uffff\x01\x6c\x01"+
-        "\uffff\x01\x63\x01\x6c\x01\x61\x02\x73\x01\x7a\x01\uffff";
-    const string DFA4_acceptS =
-        "\x02\uffff\x01\x02\x01\x03\x01\x04\x02\uffff\x01\x06\x01\uffff"+
-        "\x01\x05\x06\uffff\x01\x01";
-    const string DFA4_specialS =
-        "\x11\uffff}>";
-    static readonly string[] DFA4_transitionS = {
-            "\x01\x07\x01\x06\x02\uffff\x01\x05\x12\uffff\x01\x07\x0d\uffff"+
-            "\x01\x04\x01\uffff\x0a\x04\x07\uffff\x1a\x04\x01\x02\x01\uffff"+
-            "\x01\x03\x03\uffff\x14\x04\x01\x01\x05\x04",
-            "\x01\x08",
-            "",
-            "",
-            "",
-            "\x01\x06",
-            "\x02\x07\x02\uffff\x01\x07\x12\uffff\x01\x07",
-            "",
-            "\x01\x0a",
-            "",
-            "\x01\x0b",
-            "\x01\x0c",
-            "\x01\x0d",
-            "\x01\x0e",
-            "\x01\x0f",
-            "\x01\x04\x01\uffff\x0a\x04\x07\uffff\x1a\x04\x06\uffff\x1a"+
-            "\x04",
-            ""
-    };
-
-    static readonly short[] DFA4_eot = DFA.UnpackEncodedString(DFA4_eotS);
-    static readonly short[] DFA4_eof = DFA.UnpackEncodedString(DFA4_eofS);
-    static readonly char[] DFA4_min = DFA.UnpackEncodedStringToUnsignedChars(DFA4_minS);
-    static readonly char[] DFA4_max = DFA.UnpackEncodedStringToUnsignedChars(DFA4_maxS);
-    static readonly short[] DFA4_accept = DFA.UnpackEncodedString(DFA4_acceptS);
-    static readonly short[] DFA4_special = DFA.UnpackEncodedString(DFA4_specialS);
-    static readonly short[][] DFA4_transition = DFA.UnpackEncodedStringArray(DFA4_transitionS);
-
-    protected class DFA4 : DFA
-    {
-        public DFA4(BaseRecognizer recognizer)
-        {
-            this.recognizer = recognizer;
-            this.decisionNumber = 4;
-            this.eot = DFA4_eot;
-            this.eof = DFA4_eof;
-            this.min = DFA4_min;
-            this.max = DFA4_max;
-            this.accept = DFA4_accept;
-            this.special = DFA4_special;
-            this.transition = DFA4_transition;
-
-        }
-
-        override public string Description
-        {
-            get { return "1:1: Tokens : ( UMLCLASS | T__9 | T__10 | ID | NEWLINE | WS );"; }
-        }
-
-    }
 
  
     

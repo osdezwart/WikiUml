@@ -1,4 +1,4 @@
-// $ANTLR 3.1.1 D:\\Olle\\Projects\\WikiUml\\source\\Grammar\\WikiUml.g 2011-01-24 23:39:30
+// $ANTLR 3.1.1 D:\\Olle\\Projects\\WikiUml\\source\\Grammar\\WikiUml.g 2011-01-26 22:12:09
 // The variable 'variable' is assigned but its value is never used.
 #pragma warning disable 168, 219
 // Unreachable code detected.
@@ -6,15 +6,15 @@
 namespace  WikiUml 
 {
 
+using System.Collections.Generic;
+
+
 using System;
 using Antlr.Runtime;
 using IList 		= System.Collections.IList;
 using ArrayList 	= System.Collections.ArrayList;
 using Stack 		= Antlr.Runtime.Collections.StackList;
 
-
-
-using Antlr.Runtime.Tree;
 
 public partial class WikiUmlParser : Parser
 {
@@ -24,23 +24,31 @@ public partial class WikiUmlParser : Parser
 		"<EOR>", 
 		"<DOWN>", 
 		"<UP>", 
-		"ROOT", 
-		"UMLCLASS", 
-		"WS", 
-		"ID", 
 		"NEWLINE", 
-		"'['", 
-		"']'"
+		"LBRACK", 
+		"ID", 
+		"RBRACK", 
+		"SECTIONSEPPERATOR", 
+		"VALIDSTR", 
+		"NUMBER", 
+		"ALPHACHAR", 
+		"';'", 
+		"'('", 
+		"')'"
     };
 
-    public const int WS = 6;
-    public const int NEWLINE = 8;
-    public const int T__10 = 10;
-    public const int UMLCLASS = 5;
-    public const int ID = 7;
+    public const int RBRACK = 7;
+    public const int LBRACK = 5;
+    public const int NEWLINE = 4;
+    public const int T__12 = 12;
+    public const int T__14 = 14;
+    public const int T__13 = 13;
+    public const int NUMBER = 10;
+    public const int ALPHACHAR = 11;
+    public const int SECTIONSEPPERATOR = 8;
+    public const int ID = 6;
     public const int EOF = -1;
-    public const int T__9 = 9;
-    public const int ROOT = 4;
+    public const int VALIDSTR = 9;
 
     // delegates
     // delegators
@@ -58,15 +66,6 @@ public partial class WikiUmlParser : Parser
              
         }
         
-    protected ITreeAdaptor adaptor = new CommonTreeAdaptor();
-
-    public ITreeAdaptor TreeAdaptor
-    {
-        get { return this.adaptor; }
-        set {
-    	this.adaptor = value;
-    	}
-    }
 
     override public string[] TokenNames {
 		get { return WikiUmlParser.tokenNames; }
@@ -77,212 +76,370 @@ public partial class WikiUmlParser : Parser
     }
 
 
-    public class parse_return : ParserRuleReturnScope
-    {
-        private object tree;
-        override public object Tree
-        {
-        	get { return tree; }
-        	set { tree = (object) value; }
-        }
-    };
 
-    // $ANTLR start "parse"
-    // D:\\Olle\\Projects\\WikiUml\\source\\Grammar\\WikiUml.g:16:1: parse : umlclass EOF -> ^( ROOT umlclass ) ;
-    public WikiUmlParser.parse_return parse() // throws RecognitionException [1]
+    // $ANTLR start "diagram"
+    // D:\\Olle\\Projects\\WikiUml\\source\\Grammar\\WikiUml.g:14:1: diagram returns [Diagram result] : ( (u= umlclass NEWLINE ) | );
+    public Diagram diagram() // throws RecognitionException [1]
     {   
-        WikiUmlParser.parse_return retval = new WikiUmlParser.parse_return();
-        retval.Start = input.LT(1);
+        Diagram result = default(Diagram);
 
-        object root_0 = null;
-
-        IToken EOF2 = null;
-        WikiUmlParser.umlclass_return umlclass1 = default(WikiUmlParser.umlclass_return);
+        UmlClass u = default(UmlClass);
 
 
-        object EOF2_tree=null;
-        RewriteRuleTokenStream stream_EOF = new RewriteRuleTokenStream(adaptor,"token EOF");
-        RewriteRuleSubtreeStream stream_umlclass = new RewriteRuleSubtreeStream(adaptor,"rule umlclass");
+
+        	result = new Diagram();
+
         try 
     	{
-            // D:\\Olle\\Projects\\WikiUml\\source\\Grammar\\WikiUml.g:17:3: ( umlclass EOF -> ^( ROOT umlclass ) )
-            // D:\\Olle\\Projects\\WikiUml\\source\\Grammar\\WikiUml.g:17:6: umlclass EOF
+            // D:\\Olle\\Projects\\WikiUml\\source\\Grammar\\WikiUml.g:17:3: ( (u= umlclass NEWLINE ) | )
+            int alt1 = 2;
+            int LA1_0 = input.LA(1);
+
+            if ( (LA1_0 == LBRACK) )
             {
-            	PushFollow(FOLLOW_umlclass_in_parse70);
-            	umlclass1 = umlclass();
-            	state.followingStackPointer--;
-
-            	stream_umlclass.Add(umlclass1.Tree);
-            	EOF2=(IToken)Match(input,EOF,FOLLOW_EOF_in_parse72);  
-            	stream_EOF.Add(EOF2);
-
-
-
-            	// AST REWRITE
-            	// elements:          umlclass
-            	// token labels:      
-            	// rule labels:       retval
-            	// token list labels: 
-            	// rule list labels:  
-            	retval.Tree = root_0;
-            	RewriteRuleSubtreeStream stream_retval = new RewriteRuleSubtreeStream(adaptor, "token retval", (retval!=null ? retval.Tree : null));
-
-            	root_0 = (object)adaptor.GetNilNode();
-            	// 17:19: -> ^( ROOT umlclass )
-            	{
-            	    // D:\\Olle\\Projects\\WikiUml\\source\\Grammar\\WikiUml.g:17:22: ^( ROOT umlclass )
-            	    {
-            	    object root_1 = (object)adaptor.GetNilNode();
-            	    root_1 = (object)adaptor.BecomeRoot((object)adaptor.Create(ROOT, "ROOT"), root_1);
-
-            	    adaptor.AddChild(root_1, stream_umlclass.NextTree());
-
-            	    adaptor.AddChild(root_0, root_1);
-            	    }
-
-            	}
-
-            	retval.Tree = root_0;retval.Tree = root_0;
+                alt1 = 1;
             }
+            else if ( (LA1_0 == EOF) )
+            {
+                alt1 = 2;
+            }
+            else 
+            {
+                NoViableAltException nvae_d1s0 =
+                    new NoViableAltException("", 1, 0, input);
 
-            retval.Stop = input.LT(-1);
+                throw nvae_d1s0;
+            }
+            switch (alt1) 
+            {
+                case 1 :
+                    // D:\\Olle\\Projects\\WikiUml\\source\\Grammar\\WikiUml.g:17:5: (u= umlclass NEWLINE )
+                    {
+                    	// D:\\Olle\\Projects\\WikiUml\\source\\Grammar\\WikiUml.g:17:5: (u= umlclass NEWLINE )
+                    	// D:\\Olle\\Projects\\WikiUml\\source\\Grammar\\WikiUml.g:17:6: u= umlclass NEWLINE
+                    	{
+                    		PushFollow(FOLLOW_umlclass_in_diagram60);
+                    		u = umlclass();
+                    		state.followingStackPointer--;
 
-            	retval.Tree = (object)adaptor.RulePostProcessing(root_0);
-            	adaptor.SetTokenBoundaries(retval.Tree, (IToken) retval.Start, (IToken) retval.Stop);
+                    		Match(input,NEWLINE,FOLLOW_NEWLINE_in_diagram62); 
+
+                    	}
+
+                    	 result.umlClasses.Add(u);
+
+                    }
+                    break;
+                case 2 :
+                    // D:\\Olle\\Projects\\WikiUml\\source\\Grammar\\WikiUml.g:17:60: 
+                    {
+                    }
+                    break;
+
+            }
         }
         catch (RecognitionException re) 
     	{
             ReportError(re);
             Recover(input,re);
-    	// Conversion of the second argument necessary, but harmless
-    	retval.Tree = (object)adaptor.ErrorNode(input, (IToken) retval.Start, input.LT(-1), re);
-
         }
         finally 
     	{
         }
-        return retval;
+        return result;
     }
-    // $ANTLR end "parse"
+    // $ANTLR end "diagram"
 
-    public class umlclass_return : ParserRuleReturnScope
-    {
-        private object tree;
-        override public object Tree
-        {
-        	get { return tree; }
-        	set { tree = (object) value; }
-        }
-    };
 
     // $ANTLR start "umlclass"
-    // D:\\Olle\\Projects\\WikiUml\\source\\Grammar\\WikiUml.g:20:1: umlclass : ( WS )? '[' ID ']' ( WS )? ;
-    public WikiUmlParser.umlclass_return umlclass() // throws RecognitionException [1]
+    // D:\\Olle\\Projects\\WikiUml\\source\\Grammar\\WikiUml.g:19:1: umlclass returns [UmlClass result] : LBRACK f= ID mem= members met= methods RBRACK ;
+    public UmlClass umlclass() // throws RecognitionException [1]
     {   
-        WikiUmlParser.umlclass_return retval = new WikiUmlParser.umlclass_return();
-        retval.Start = input.LT(1);
+        UmlClass result = default(UmlClass);
 
-        object root_0 = null;
+        IToken f = null;
+        List<Member> mem = default(List<Member>);
 
-        IToken WS3 = null;
-        IToken char_literal4 = null;
-        IToken ID5 = null;
-        IToken char_literal6 = null;
-        IToken WS7 = null;
+        List<Method> met = default(List<Method>);
 
-        object WS3_tree=null;
-        object char_literal4_tree=null;
-        object ID5_tree=null;
-        object char_literal6_tree=null;
-        object WS7_tree=null;
+
+
+        	result = new UmlClass();
 
         try 
     	{
-            // D:\\Olle\\Projects\\WikiUml\\source\\Grammar\\WikiUml.g:21:5: ( ( WS )? '[' ID ']' ( WS )? )
-            // D:\\Olle\\Projects\\WikiUml\\source\\Grammar\\WikiUml.g:21:10: ( WS )? '[' ID ']' ( WS )?
+            // D:\\Olle\\Projects\\WikiUml\\source\\Grammar\\WikiUml.g:22:3: ( LBRACK f= ID mem= members met= methods RBRACK )
+            // D:\\Olle\\Projects\\WikiUml\\source\\Grammar\\WikiUml.g:22:5: LBRACK f= ID mem= members met= methods RBRACK
             {
-            	root_0 = (object)adaptor.GetNilNode();
+            	Match(input,LBRACK,FOLLOW_LBRACK_in_umlclass86); 
+            	f=(IToken)Match(input,ID,FOLLOW_ID_in_umlclass92); 
+            	PushFollow(FOLLOW_members_in_umlclass98);
+            	mem = members();
+            	state.followingStackPointer--;
 
-            	// D:\\Olle\\Projects\\WikiUml\\source\\Grammar\\WikiUml.g:21:10: ( WS )?
-            	int alt1 = 2;
-            	int LA1_0 = input.LA(1);
+            	PushFollow(FOLLOW_methods_in_umlclass104);
+            	met = methods();
+            	state.followingStackPointer--;
 
-            	if ( (LA1_0 == WS) )
-            	{
-            	    alt1 = 1;
-            	}
-            	switch (alt1) 
-            	{
-            	    case 1 :
-            	        // D:\\Olle\\Projects\\WikiUml\\source\\Grammar\\WikiUml.g:21:10: WS
-            	        {
-            	        	WS3=(IToken)Match(input,WS,FOLLOW_WS_in_umlclass98); 
-            	        		WS3_tree = (object)adaptor.Create(WS3);
-            	        		adaptor.AddChild(root_0, WS3_tree);
-
-
-            	        }
-            	        break;
-
-            	}
-
-            	char_literal4=(IToken)Match(input,9,FOLLOW_9_in_umlclass101); 
-            		char_literal4_tree = (object)adaptor.Create(char_literal4);
-            		adaptor.AddChild(root_0, char_literal4_tree);
-
-            	ID5=(IToken)Match(input,ID,FOLLOW_ID_in_umlclass102); 
-            		ID5_tree = (object)adaptor.Create(ID5);
-            		adaptor.AddChild(root_0, ID5_tree);
-
-            	char_literal6=(IToken)Match(input,10,FOLLOW_10_in_umlclass103); 
-            		char_literal6_tree = (object)adaptor.Create(char_literal6);
-            		adaptor.AddChild(root_0, char_literal6_tree);
-
-            	// D:\\Olle\\Projects\\WikiUml\\source\\Grammar\\WikiUml.g:21:23: ( WS )?
-            	int alt2 = 2;
-            	int LA2_0 = input.LA(1);
-
-            	if ( (LA2_0 == WS) )
-            	{
-            	    alt2 = 1;
-            	}
-            	switch (alt2) 
-            	{
-            	    case 1 :
-            	        // D:\\Olle\\Projects\\WikiUml\\source\\Grammar\\WikiUml.g:21:23: WS
-            	        {
-            	        	WS7=(IToken)Match(input,WS,FOLLOW_WS_in_umlclass105); 
-            	        		WS7_tree = (object)adaptor.Create(WS7);
-            	        		adaptor.AddChild(root_0, WS7_tree);
-
-
-            	        }
-            	        break;
-
-            	}
-
+            	Match(input,RBRACK,FOLLOW_RBRACK_in_umlclass106); 
+            	 result.Name = ((f != null) ? f.Text : null); result.Members.AddRange(mem); result.Methods.AddRange(met);
 
             }
 
-            retval.Stop = input.LT(-1);
-
-            	retval.Tree = (object)adaptor.RulePostProcessing(root_0);
-            	adaptor.SetTokenBoundaries(retval.Tree, (IToken) retval.Start, (IToken) retval.Stop);
         }
         catch (RecognitionException re) 
     	{
             ReportError(re);
             Recover(input,re);
-    	// Conversion of the second argument necessary, but harmless
-    	retval.Tree = (object)adaptor.ErrorNode(input, (IToken) retval.Start, input.LT(-1), re);
-
         }
         finally 
     	{
         }
-        return retval;
+        return result;
     }
     // $ANTLR end "umlclass"
+
+
+    // $ANTLR start "members"
+    // D:\\Olle\\Projects\\WikiUml\\source\\Grammar\\WikiUml.g:24:1: members returns [List<Member> members] : SECTIONSEPPERATOR (m= member ( ';' )? )* ;
+    public List<Member> members() // throws RecognitionException [1]
+    {   
+        List<Member> members = default(List<Member>);
+
+        Member m = default(Member);
+
+
+        members = new List<Member>();
+        try 
+    	{
+            // D:\\Olle\\Projects\\WikiUml\\source\\Grammar\\WikiUml.g:24:77: ( SECTIONSEPPERATOR (m= member ( ';' )? )* )
+            // D:\\Olle\\Projects\\WikiUml\\source\\Grammar\\WikiUml.g:24:79: SECTIONSEPPERATOR (m= member ( ';' )? )*
+            {
+            	Match(input,SECTIONSEPPERATOR,FOLLOW_SECTIONSEPPERATOR_in_members126); 
+            	// D:\\Olle\\Projects\\WikiUml\\source\\Grammar\\WikiUml.g:24:97: (m= member ( ';' )? )*
+            	do 
+            	{
+            	    int alt3 = 2;
+            	    int LA3_0 = input.LA(1);
+
+            	    if ( (LA3_0 == ID) )
+            	    {
+            	        alt3 = 1;
+            	    }
+
+
+            	    switch (alt3) 
+            		{
+            			case 1 :
+            			    // D:\\Olle\\Projects\\WikiUml\\source\\Grammar\\WikiUml.g:24:98: m= member ( ';' )?
+            			    {
+            			    	PushFollow(FOLLOW_member_in_members133);
+            			    	m = member();
+            			    	state.followingStackPointer--;
+
+            			    	// D:\\Olle\\Projects\\WikiUml\\source\\Grammar\\WikiUml.g:24:109: ( ';' )?
+            			    	int alt2 = 2;
+            			    	int LA2_0 = input.LA(1);
+
+            			    	if ( (LA2_0 == 12) )
+            			    	{
+            			    	    alt2 = 1;
+            			    	}
+            			    	switch (alt2) 
+            			    	{
+            			    	    case 1 :
+            			    	        // D:\\Olle\\Projects\\WikiUml\\source\\Grammar\\WikiUml.g:24:109: ';'
+            			    	        {
+            			    	        	Match(input,12,FOLLOW_12_in_members135); 
+
+            			    	        }
+            			    	        break;
+
+            			    	}
+
+
+            			    }
+            			    break;
+
+            			default:
+            			    goto loop3;
+            	    }
+            	} while (true);
+
+            	loop3:
+            		;	// Stops C# compiler whining that label 'loop3' has no statements
+
+            	members.Add(m);
+
+            }
+
+        }
+        catch (RecognitionException re) 
+    	{
+            ReportError(re);
+            Recover(input,re);
+        }
+        finally 
+    	{
+        }
+        return members;
+    }
+    // $ANTLR end "members"
+
+
+    // $ANTLR start "member"
+    // D:\\Olle\\Projects\\WikiUml\\source\\Grammar\\WikiUml.g:25:1: member returns [Member member] : i= ID ;
+    public Member member() // throws RecognitionException [1]
+    {   
+        Member member = default(Member);
+
+        IToken i = null;
+
+        member = new Member();
+        try 
+    	{
+            // D:\\Olle\\Projects\\WikiUml\\source\\Grammar\\WikiUml.g:25:62: (i= ID )
+            // D:\\Olle\\Projects\\WikiUml\\source\\Grammar\\WikiUml.g:25:64: i= ID
+            {
+            	i=(IToken)Match(input,ID,FOLLOW_ID_in_member158); 
+            	member.Name = ((i != null) ? i.Text : null);
+
+            }
+
+        }
+        catch (RecognitionException re) 
+    	{
+            ReportError(re);
+            Recover(input,re);
+        }
+        finally 
+    	{
+        }
+        return member;
+    }
+    // $ANTLR end "member"
+
+
+    // $ANTLR start "methods"
+    // D:\\Olle\\Projects\\WikiUml\\source\\Grammar\\WikiUml.g:27:1: methods returns [List<Method> methods] : SECTIONSEPPERATOR (m= method ( ';' )? )* ;
+    public List<Method> methods() // throws RecognitionException [1]
+    {   
+        List<Method> methods = default(List<Method>);
+
+        Method m = default(Method);
+
+
+        methods = new List<Method>();
+        try 
+    	{
+            // D:\\Olle\\Projects\\WikiUml\\source\\Grammar\\WikiUml.g:27:77: ( SECTIONSEPPERATOR (m= method ( ';' )? )* )
+            // D:\\Olle\\Projects\\WikiUml\\source\\Grammar\\WikiUml.g:27:79: SECTIONSEPPERATOR (m= method ( ';' )? )*
+            {
+            	Match(input,SECTIONSEPPERATOR,FOLLOW_SECTIONSEPPERATOR_in_methods176); 
+            	// D:\\Olle\\Projects\\WikiUml\\source\\Grammar\\WikiUml.g:27:97: (m= method ( ';' )? )*
+            	do 
+            	{
+            	    int alt5 = 2;
+            	    int LA5_0 = input.LA(1);
+
+            	    if ( (LA5_0 == ID) )
+            	    {
+            	        alt5 = 1;
+            	    }
+
+
+            	    switch (alt5) 
+            		{
+            			case 1 :
+            			    // D:\\Olle\\Projects\\WikiUml\\source\\Grammar\\WikiUml.g:27:98: m= method ( ';' )?
+            			    {
+            			    	PushFollow(FOLLOW_method_in_methods183);
+            			    	m = method();
+            			    	state.followingStackPointer--;
+
+            			    	// D:\\Olle\\Projects\\WikiUml\\source\\Grammar\\WikiUml.g:27:109: ( ';' )?
+            			    	int alt4 = 2;
+            			    	int LA4_0 = input.LA(1);
+
+            			    	if ( (LA4_0 == 12) )
+            			    	{
+            			    	    alt4 = 1;
+            			    	}
+            			    	switch (alt4) 
+            			    	{
+            			    	    case 1 :
+            			    	        // D:\\Olle\\Projects\\WikiUml\\source\\Grammar\\WikiUml.g:27:109: ';'
+            			    	        {
+            			    	        	Match(input,12,FOLLOW_12_in_methods185); 
+
+            			    	        }
+            			    	        break;
+
+            			    	}
+
+
+            			    }
+            			    break;
+
+            			default:
+            			    goto loop5;
+            	    }
+            	} while (true);
+
+            	loop5:
+            		;	// Stops C# compiler whining that label 'loop5' has no statements
+
+            	methods.Add(m);
+
+            }
+
+        }
+        catch (RecognitionException re) 
+    	{
+            ReportError(re);
+            Recover(input,re);
+        }
+        finally 
+    	{
+        }
+        return methods;
+    }
+    // $ANTLR end "methods"
+
+
+    // $ANTLR start "method"
+    // D:\\Olle\\Projects\\WikiUml\\source\\Grammar\\WikiUml.g:28:1: method returns [Method method] : m= ID '(' ')' ;
+    public Method method() // throws RecognitionException [1]
+    {   
+        Method method = default(Method);
+
+        IToken m = null;
+
+        method = new Method();
+        try 
+    	{
+            // D:\\Olle\\Projects\\WikiUml\\source\\Grammar\\WikiUml.g:28:63: (m= ID '(' ')' )
+            // D:\\Olle\\Projects\\WikiUml\\source\\Grammar\\WikiUml.g:28:65: m= ID '(' ')'
+            {
+            	m=(IToken)Match(input,ID,FOLLOW_ID_in_method209); 
+            	Match(input,13,FOLLOW_13_in_method210); 
+            	Match(input,14,FOLLOW_14_in_method211); 
+            	method.Name= ((m != null) ? m.Text : null);
+
+            }
+
+        }
+        catch (RecognitionException re) 
+    	{
+            ReportError(re);
+            Recover(input,re);
+        }
+        finally 
+    	{
+        }
+        return method;
+    }
+    // $ANTLR end "method"
 
     // Delegated rules
 
@@ -293,13 +450,23 @@ public partial class WikiUmlParser : Parser
 
  
 
-    public static readonly BitSet FOLLOW_umlclass_in_parse70 = new BitSet(new ulong[]{0x0000000000000000UL});
-    public static readonly BitSet FOLLOW_EOF_in_parse72 = new BitSet(new ulong[]{0x0000000000000002UL});
-    public static readonly BitSet FOLLOW_WS_in_umlclass98 = new BitSet(new ulong[]{0x0000000000000200UL});
-    public static readonly BitSet FOLLOW_9_in_umlclass101 = new BitSet(new ulong[]{0x0000000000000080UL});
-    public static readonly BitSet FOLLOW_ID_in_umlclass102 = new BitSet(new ulong[]{0x0000000000000400UL});
-    public static readonly BitSet FOLLOW_10_in_umlclass103 = new BitSet(new ulong[]{0x0000000000000042UL});
-    public static readonly BitSet FOLLOW_WS_in_umlclass105 = new BitSet(new ulong[]{0x0000000000000002UL});
+    public static readonly BitSet FOLLOW_umlclass_in_diagram60 = new BitSet(new ulong[]{0x0000000000000010UL});
+    public static readonly BitSet FOLLOW_NEWLINE_in_diagram62 = new BitSet(new ulong[]{0x0000000000000002UL});
+    public static readonly BitSet FOLLOW_LBRACK_in_umlclass86 = new BitSet(new ulong[]{0x0000000000000040UL});
+    public static readonly BitSet FOLLOW_ID_in_umlclass92 = new BitSet(new ulong[]{0x0000000000000100UL});
+    public static readonly BitSet FOLLOW_members_in_umlclass98 = new BitSet(new ulong[]{0x0000000000000100UL});
+    public static readonly BitSet FOLLOW_methods_in_umlclass104 = new BitSet(new ulong[]{0x0000000000000080UL});
+    public static readonly BitSet FOLLOW_RBRACK_in_umlclass106 = new BitSet(new ulong[]{0x0000000000000002UL});
+    public static readonly BitSet FOLLOW_SECTIONSEPPERATOR_in_members126 = new BitSet(new ulong[]{0x0000000000000042UL});
+    public static readonly BitSet FOLLOW_member_in_members133 = new BitSet(new ulong[]{0x0000000000001042UL});
+    public static readonly BitSet FOLLOW_12_in_members135 = new BitSet(new ulong[]{0x0000000000000042UL});
+    public static readonly BitSet FOLLOW_ID_in_member158 = new BitSet(new ulong[]{0x0000000000000002UL});
+    public static readonly BitSet FOLLOW_SECTIONSEPPERATOR_in_methods176 = new BitSet(new ulong[]{0x0000000000000042UL});
+    public static readonly BitSet FOLLOW_method_in_methods183 = new BitSet(new ulong[]{0x0000000000001042UL});
+    public static readonly BitSet FOLLOW_12_in_methods185 = new BitSet(new ulong[]{0x0000000000000042UL});
+    public static readonly BitSet FOLLOW_ID_in_method209 = new BitSet(new ulong[]{0x0000000000002000UL});
+    public static readonly BitSet FOLLOW_13_in_method210 = new BitSet(new ulong[]{0x0000000000004000UL});
+    public static readonly BitSet FOLLOW_14_in_method211 = new BitSet(new ulong[]{0x0000000000000002UL});
 
 }
 }
