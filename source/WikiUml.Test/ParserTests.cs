@@ -35,6 +35,42 @@ namespace WikiUml.Test
             Assert.AreEqual("baz", diagram.umlClasses[0].Methods[0].Name);
         }
 
+        [Test]
+        public void parsing_diagram_with_multiple_classes_on_multiple_rows_returns_multiple_classes()
+        {
+            var diagram = ParseWikiUml("[Foo]\r\n[Bar]");
+            Assert.AreEqual(2, diagram.umlClasses.Count);
+            Assert.AreEqual("Foo", diagram.umlClasses[0].Name);
+            Assert.AreEqual("Bar", diagram.umlClasses[0].Name);
+        }
+
+        [Test]
+        public void parsing_diagram_with_multiple_classes_on_same_row_returns_multiple_classes()
+        {
+            var diagram = ParseWikiUml("[Foo][Bar]");
+            Assert.AreEqual(2, diagram.umlClasses.Count);
+            Assert.AreEqual("Foo", diagram.umlClasses[0].Name);
+            Assert.AreEqual("Bar", diagram.umlClasses[0].Name);
+        }
+
+        [Test]
+        public void parsing_diagram_with_multiple_classes_on_same_row_with_spacing_returns_multiple_classes()
+        {
+            var diagram = ParseWikiUml("    [Foo] [Bar]\r\n");
+            Assert.AreEqual(2, diagram.umlClasses.Count);
+            Assert.AreEqual("Foo", diagram.umlClasses[0].Name);
+            Assert.AreEqual("Bar", diagram.umlClasses[0].Name);
+        }
+
+        [Test]
+        public void parsing_diagram_with_multiple_classes_sepperated_with_unix_line_endings_returns_multiple_classes()
+        {
+            var diagram = ParseWikiUml("[Foo]\n[Bar]");
+            Assert.AreEqual(2, diagram.umlClasses.Count);
+            Assert.AreEqual("Foo", diagram.umlClasses[0].Name);
+            Assert.AreEqual("Bar", diagram.umlClasses[0].Name);
+        }
+
         private Diagram ParseWikiUml(string wikiUml)
         {
             var input = new ANTLRStringStream(wikiUml);

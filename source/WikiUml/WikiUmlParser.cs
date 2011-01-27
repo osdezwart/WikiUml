@@ -1,4 +1,4 @@
-// $ANTLR 3.1.1 D:\\Olle\\Projects\\WikiUml\\source\\Grammar\\WikiUml.g 2011-01-26 22:12:09
+// $ANTLR 3.1.1 D:\\Olle\\Projects\\WikiUml\\source\\Grammar\\WikiUml.g 2011-01-27 18:47:29
 // The variable 'variable' is assigned but its value is never used.
 #pragma warning disable 168, 219
 // Unreachable code detected.
@@ -24,13 +24,12 @@ public partial class WikiUmlParser : Parser
 		"<EOR>", 
 		"<DOWN>", 
 		"<UP>", 
-		"NEWLINE", 
+		"WS", 
 		"LBRACK", 
 		"ID", 
 		"RBRACK", 
 		"SECTIONSEPPERATOR", 
 		"VALIDSTR", 
-		"NUMBER", 
 		"ALPHACHAR", 
 		"';'", 
 		"'('", 
@@ -39,12 +38,11 @@ public partial class WikiUmlParser : Parser
 
     public const int RBRACK = 7;
     public const int LBRACK = 5;
-    public const int NEWLINE = 4;
+    public const int WS = 4;
     public const int T__12 = 12;
-    public const int T__14 = 14;
+    public const int T__11 = 11;
     public const int T__13 = 13;
-    public const int NUMBER = 10;
-    public const int ALPHACHAR = 11;
+    public const int ALPHACHAR = 10;
     public const int SECTIONSEPPERATOR = 8;
     public const int ID = 6;
     public const int EOF = -1;
@@ -78,7 +76,7 @@ public partial class WikiUmlParser : Parser
 
 
     // $ANTLR start "diagram"
-    // D:\\Olle\\Projects\\WikiUml\\source\\Grammar\\WikiUml.g:14:1: diagram returns [Diagram result] : ( (u= umlclass NEWLINE ) | );
+    // D:\\Olle\\Projects\\WikiUml\\source\\Grammar\\WikiUml.g:14:1: diagram returns [Diagram result] : ( (u= umlclass ( WS )? ( umlclass )? ) | );
     public Diagram diagram() // throws RecognitionException [1]
     {   
         Diagram result = default(Diagram);
@@ -91,38 +89,80 @@ public partial class WikiUmlParser : Parser
 
         try 
     	{
-            // D:\\Olle\\Projects\\WikiUml\\source\\Grammar\\WikiUml.g:17:3: ( (u= umlclass NEWLINE ) | )
-            int alt1 = 2;
-            int LA1_0 = input.LA(1);
+            // D:\\Olle\\Projects\\WikiUml\\source\\Grammar\\WikiUml.g:17:3: ( (u= umlclass ( WS )? ( umlclass )? ) | )
+            int alt3 = 2;
+            int LA3_0 = input.LA(1);
 
-            if ( (LA1_0 == LBRACK) )
+            if ( (LA3_0 == LBRACK) )
             {
-                alt1 = 1;
+                alt3 = 1;
             }
-            else if ( (LA1_0 == EOF) )
+            else if ( (LA3_0 == EOF) )
             {
-                alt1 = 2;
+                alt3 = 2;
             }
             else 
             {
-                NoViableAltException nvae_d1s0 =
-                    new NoViableAltException("", 1, 0, input);
+                NoViableAltException nvae_d3s0 =
+                    new NoViableAltException("", 3, 0, input);
 
-                throw nvae_d1s0;
+                throw nvae_d3s0;
             }
-            switch (alt1) 
+            switch (alt3) 
             {
                 case 1 :
-                    // D:\\Olle\\Projects\\WikiUml\\source\\Grammar\\WikiUml.g:17:5: (u= umlclass NEWLINE )
+                    // D:\\Olle\\Projects\\WikiUml\\source\\Grammar\\WikiUml.g:17:5: (u= umlclass ( WS )? ( umlclass )? )
                     {
-                    	// D:\\Olle\\Projects\\WikiUml\\source\\Grammar\\WikiUml.g:17:5: (u= umlclass NEWLINE )
-                    	// D:\\Olle\\Projects\\WikiUml\\source\\Grammar\\WikiUml.g:17:6: u= umlclass NEWLINE
+                    	// D:\\Olle\\Projects\\WikiUml\\source\\Grammar\\WikiUml.g:17:5: (u= umlclass ( WS )? ( umlclass )? )
+                    	// D:\\Olle\\Projects\\WikiUml\\source\\Grammar\\WikiUml.g:17:6: u= umlclass ( WS )? ( umlclass )?
                     	{
                     		PushFollow(FOLLOW_umlclass_in_diagram60);
                     		u = umlclass();
                     		state.followingStackPointer--;
 
-                    		Match(input,NEWLINE,FOLLOW_NEWLINE_in_diagram62); 
+                    		// D:\\Olle\\Projects\\WikiUml\\source\\Grammar\\WikiUml.g:17:19: ( WS )?
+                    		int alt1 = 2;
+                    		int LA1_0 = input.LA(1);
+
+                    		if ( (LA1_0 == WS) )
+                    		{
+                    		    alt1 = 1;
+                    		}
+                    		switch (alt1) 
+                    		{
+                    		    case 1 :
+                    		        // D:\\Olle\\Projects\\WikiUml\\source\\Grammar\\WikiUml.g:17:19: WS
+                    		        {
+                    		        	Match(input,WS,FOLLOW_WS_in_diagram62); 
+
+                    		        }
+                    		        break;
+
+                    		}
+
+                    		// D:\\Olle\\Projects\\WikiUml\\source\\Grammar\\WikiUml.g:17:23: ( umlclass )?
+                    		int alt2 = 2;
+                    		int LA2_0 = input.LA(1);
+
+                    		if ( (LA2_0 == LBRACK) )
+                    		{
+                    		    alt2 = 1;
+                    		}
+                    		switch (alt2) 
+                    		{
+                    		    case 1 :
+                    		        // D:\\Olle\\Projects\\WikiUml\\source\\Grammar\\WikiUml.g:17:23: umlclass
+                    		        {
+                    		        	PushFollow(FOLLOW_umlclass_in_diagram65);
+                    		        	umlclass();
+                    		        	state.followingStackPointer--;
+
+
+                    		        }
+                    		        break;
+
+                    		}
+
 
                     	}
 
@@ -131,7 +171,7 @@ public partial class WikiUmlParser : Parser
                     }
                     break;
                 case 2 :
-                    // D:\\Olle\\Projects\\WikiUml\\source\\Grammar\\WikiUml.g:17:60: 
+                    // D:\\Olle\\Projects\\WikiUml\\source\\Grammar\\WikiUml.g:17:66: 
                     {
                     }
                     break;
@@ -152,7 +192,7 @@ public partial class WikiUmlParser : Parser
 
 
     // $ANTLR start "umlclass"
-    // D:\\Olle\\Projects\\WikiUml\\source\\Grammar\\WikiUml.g:19:1: umlclass returns [UmlClass result] : LBRACK f= ID mem= members met= methods RBRACK ;
+    // D:\\Olle\\Projects\\WikiUml\\source\\Grammar\\WikiUml.g:20:1: umlclass returns [UmlClass result] : LBRACK (f= ID )? (mem= members met= methods )? RBRACK ;
     public UmlClass umlclass() // throws RecognitionException [1]
     {   
         UmlClass result = default(UmlClass);
@@ -168,21 +208,59 @@ public partial class WikiUmlParser : Parser
 
         try 
     	{
-            // D:\\Olle\\Projects\\WikiUml\\source\\Grammar\\WikiUml.g:22:3: ( LBRACK f= ID mem= members met= methods RBRACK )
-            // D:\\Olle\\Projects\\WikiUml\\source\\Grammar\\WikiUml.g:22:5: LBRACK f= ID mem= members met= methods RBRACK
+            // D:\\Olle\\Projects\\WikiUml\\source\\Grammar\\WikiUml.g:23:3: ( LBRACK (f= ID )? (mem= members met= methods )? RBRACK )
+            // D:\\Olle\\Projects\\WikiUml\\source\\Grammar\\WikiUml.g:23:5: LBRACK (f= ID )? (mem= members met= methods )? RBRACK
             {
-            	Match(input,LBRACK,FOLLOW_LBRACK_in_umlclass86); 
-            	f=(IToken)Match(input,ID,FOLLOW_ID_in_umlclass92); 
-            	PushFollow(FOLLOW_members_in_umlclass98);
-            	mem = members();
-            	state.followingStackPointer--;
+            	Match(input,LBRACK,FOLLOW_LBRACK_in_umlclass91); 
+            	// D:\\Olle\\Projects\\WikiUml\\source\\Grammar\\WikiUml.g:23:14: (f= ID )?
+            	int alt4 = 2;
+            	int LA4_0 = input.LA(1);
 
-            	PushFollow(FOLLOW_methods_in_umlclass104);
-            	met = methods();
-            	state.followingStackPointer--;
+            	if ( (LA4_0 == ID) )
+            	{
+            	    alt4 = 1;
+            	}
+            	switch (alt4) 
+            	{
+            	    case 1 :
+            	        // D:\\Olle\\Projects\\WikiUml\\source\\Grammar\\WikiUml.g:23:14: f= ID
+            	        {
+            	        	f=(IToken)Match(input,ID,FOLLOW_ID_in_umlclass97); 
 
-            	Match(input,RBRACK,FOLLOW_RBRACK_in_umlclass106); 
-            	 result.Name = ((f != null) ? f.Text : null); result.Members.AddRange(mem); result.Methods.AddRange(met);
+            	        }
+            	        break;
+
+            	}
+
+            	// D:\\Olle\\Projects\\WikiUml\\source\\Grammar\\WikiUml.g:23:20: (mem= members met= methods )?
+            	int alt5 = 2;
+            	int LA5_0 = input.LA(1);
+
+            	if ( (LA5_0 == SECTIONSEPPERATOR) )
+            	{
+            	    alt5 = 1;
+            	}
+            	switch (alt5) 
+            	{
+            	    case 1 :
+            	        // D:\\Olle\\Projects\\WikiUml\\source\\Grammar\\WikiUml.g:23:21: mem= members met= methods
+            	        {
+            	        	PushFollow(FOLLOW_members_in_umlclass105);
+            	        	mem = members();
+            	        	state.followingStackPointer--;
+
+            	        	PushFollow(FOLLOW_methods_in_umlclass111);
+            	        	met = methods();
+            	        	state.followingStackPointer--;
+
+
+            	        }
+            	        break;
+
+            	}
+
+            	Match(input,RBRACK,FOLLOW_RBRACK_in_umlclass115); 
+            	 result.Name = ((f != null) ? f.Text : null); if(mem != null) result.Members.AddRange(mem); if(met != null) result.Methods.AddRange(met);
 
             }
 
@@ -201,7 +279,7 @@ public partial class WikiUmlParser : Parser
 
 
     // $ANTLR start "members"
-    // D:\\Olle\\Projects\\WikiUml\\source\\Grammar\\WikiUml.g:24:1: members returns [List<Member> members] : SECTIONSEPPERATOR (m= member ( ';' )? )* ;
+    // D:\\Olle\\Projects\\WikiUml\\source\\Grammar\\WikiUml.g:25:1: members returns [List<Member> members] : SECTIONSEPPERATOR (m= member ( ';' )? )* ;
     public List<Member> members() // throws RecognitionException [1]
     {   
         List<Member> members = default(List<Member>);
@@ -212,45 +290,45 @@ public partial class WikiUmlParser : Parser
         members = new List<Member>();
         try 
     	{
-            // D:\\Olle\\Projects\\WikiUml\\source\\Grammar\\WikiUml.g:24:77: ( SECTIONSEPPERATOR (m= member ( ';' )? )* )
-            // D:\\Olle\\Projects\\WikiUml\\source\\Grammar\\WikiUml.g:24:79: SECTIONSEPPERATOR (m= member ( ';' )? )*
+            // D:\\Olle\\Projects\\WikiUml\\source\\Grammar\\WikiUml.g:25:77: ( SECTIONSEPPERATOR (m= member ( ';' )? )* )
+            // D:\\Olle\\Projects\\WikiUml\\source\\Grammar\\WikiUml.g:25:79: SECTIONSEPPERATOR (m= member ( ';' )? )*
             {
-            	Match(input,SECTIONSEPPERATOR,FOLLOW_SECTIONSEPPERATOR_in_members126); 
-            	// D:\\Olle\\Projects\\WikiUml\\source\\Grammar\\WikiUml.g:24:97: (m= member ( ';' )? )*
+            	Match(input,SECTIONSEPPERATOR,FOLLOW_SECTIONSEPPERATOR_in_members135); 
+            	// D:\\Olle\\Projects\\WikiUml\\source\\Grammar\\WikiUml.g:25:97: (m= member ( ';' )? )*
             	do 
             	{
-            	    int alt3 = 2;
-            	    int LA3_0 = input.LA(1);
+            	    int alt7 = 2;
+            	    int LA7_0 = input.LA(1);
 
-            	    if ( (LA3_0 == ID) )
+            	    if ( (LA7_0 == ID) )
             	    {
-            	        alt3 = 1;
+            	        alt7 = 1;
             	    }
 
 
-            	    switch (alt3) 
+            	    switch (alt7) 
             		{
             			case 1 :
-            			    // D:\\Olle\\Projects\\WikiUml\\source\\Grammar\\WikiUml.g:24:98: m= member ( ';' )?
+            			    // D:\\Olle\\Projects\\WikiUml\\source\\Grammar\\WikiUml.g:25:98: m= member ( ';' )?
             			    {
-            			    	PushFollow(FOLLOW_member_in_members133);
+            			    	PushFollow(FOLLOW_member_in_members142);
             			    	m = member();
             			    	state.followingStackPointer--;
 
-            			    	// D:\\Olle\\Projects\\WikiUml\\source\\Grammar\\WikiUml.g:24:109: ( ';' )?
-            			    	int alt2 = 2;
-            			    	int LA2_0 = input.LA(1);
+            			    	// D:\\Olle\\Projects\\WikiUml\\source\\Grammar\\WikiUml.g:25:109: ( ';' )?
+            			    	int alt6 = 2;
+            			    	int LA6_0 = input.LA(1);
 
-            			    	if ( (LA2_0 == 12) )
+            			    	if ( (LA6_0 == 11) )
             			    	{
-            			    	    alt2 = 1;
+            			    	    alt6 = 1;
             			    	}
-            			    	switch (alt2) 
+            			    	switch (alt6) 
             			    	{
             			    	    case 1 :
-            			    	        // D:\\Olle\\Projects\\WikiUml\\source\\Grammar\\WikiUml.g:24:109: ';'
+            			    	        // D:\\Olle\\Projects\\WikiUml\\source\\Grammar\\WikiUml.g:25:109: ';'
             			    	        {
-            			    	        	Match(input,12,FOLLOW_12_in_members135); 
+            			    	        	Match(input,11,FOLLOW_11_in_members144); 
 
             			    	        }
             			    	        break;
@@ -262,14 +340,14 @@ public partial class WikiUmlParser : Parser
             			    break;
 
             			default:
-            			    goto loop3;
+            			    goto loop7;
             	    }
             	} while (true);
 
-            	loop3:
-            		;	// Stops C# compiler whining that label 'loop3' has no statements
+            	loop7:
+            		;	// Stops C# compiler whining that label 'loop7' has no statements
 
-            	members.Add(m);
+            	if(m != null) members.Add(m);
 
             }
 
@@ -288,7 +366,7 @@ public partial class WikiUmlParser : Parser
 
 
     // $ANTLR start "member"
-    // D:\\Olle\\Projects\\WikiUml\\source\\Grammar\\WikiUml.g:25:1: member returns [Member member] : i= ID ;
+    // D:\\Olle\\Projects\\WikiUml\\source\\Grammar\\WikiUml.g:26:1: member returns [Member member] : i= ID ;
     public Member member() // throws RecognitionException [1]
     {   
         Member member = default(Member);
@@ -298,10 +376,10 @@ public partial class WikiUmlParser : Parser
         member = new Member();
         try 
     	{
-            // D:\\Olle\\Projects\\WikiUml\\source\\Grammar\\WikiUml.g:25:62: (i= ID )
-            // D:\\Olle\\Projects\\WikiUml\\source\\Grammar\\WikiUml.g:25:64: i= ID
+            // D:\\Olle\\Projects\\WikiUml\\source\\Grammar\\WikiUml.g:26:62: (i= ID )
+            // D:\\Olle\\Projects\\WikiUml\\source\\Grammar\\WikiUml.g:26:64: i= ID
             {
-            	i=(IToken)Match(input,ID,FOLLOW_ID_in_member158); 
+            	i=(IToken)Match(input,ID,FOLLOW_ID_in_member167); 
             	member.Name = ((i != null) ? i.Text : null);
 
             }
@@ -321,7 +399,7 @@ public partial class WikiUmlParser : Parser
 
 
     // $ANTLR start "methods"
-    // D:\\Olle\\Projects\\WikiUml\\source\\Grammar\\WikiUml.g:27:1: methods returns [List<Method> methods] : SECTIONSEPPERATOR (m= method ( ';' )? )* ;
+    // D:\\Olle\\Projects\\WikiUml\\source\\Grammar\\WikiUml.g:28:1: methods returns [List<Method> methods] : SECTIONSEPPERATOR (m= method ( ';' )? )* ;
     public List<Method> methods() // throws RecognitionException [1]
     {   
         List<Method> methods = default(List<Method>);
@@ -332,45 +410,45 @@ public partial class WikiUmlParser : Parser
         methods = new List<Method>();
         try 
     	{
-            // D:\\Olle\\Projects\\WikiUml\\source\\Grammar\\WikiUml.g:27:77: ( SECTIONSEPPERATOR (m= method ( ';' )? )* )
-            // D:\\Olle\\Projects\\WikiUml\\source\\Grammar\\WikiUml.g:27:79: SECTIONSEPPERATOR (m= method ( ';' )? )*
+            // D:\\Olle\\Projects\\WikiUml\\source\\Grammar\\WikiUml.g:28:77: ( SECTIONSEPPERATOR (m= method ( ';' )? )* )
+            // D:\\Olle\\Projects\\WikiUml\\source\\Grammar\\WikiUml.g:28:79: SECTIONSEPPERATOR (m= method ( ';' )? )*
             {
-            	Match(input,SECTIONSEPPERATOR,FOLLOW_SECTIONSEPPERATOR_in_methods176); 
-            	// D:\\Olle\\Projects\\WikiUml\\source\\Grammar\\WikiUml.g:27:97: (m= method ( ';' )? )*
+            	Match(input,SECTIONSEPPERATOR,FOLLOW_SECTIONSEPPERATOR_in_methods185); 
+            	// D:\\Olle\\Projects\\WikiUml\\source\\Grammar\\WikiUml.g:28:97: (m= method ( ';' )? )*
             	do 
             	{
-            	    int alt5 = 2;
-            	    int LA5_0 = input.LA(1);
+            	    int alt9 = 2;
+            	    int LA9_0 = input.LA(1);
 
-            	    if ( (LA5_0 == ID) )
+            	    if ( (LA9_0 == ID) )
             	    {
-            	        alt5 = 1;
+            	        alt9 = 1;
             	    }
 
 
-            	    switch (alt5) 
+            	    switch (alt9) 
             		{
             			case 1 :
-            			    // D:\\Olle\\Projects\\WikiUml\\source\\Grammar\\WikiUml.g:27:98: m= method ( ';' )?
+            			    // D:\\Olle\\Projects\\WikiUml\\source\\Grammar\\WikiUml.g:28:98: m= method ( ';' )?
             			    {
-            			    	PushFollow(FOLLOW_method_in_methods183);
+            			    	PushFollow(FOLLOW_method_in_methods192);
             			    	m = method();
             			    	state.followingStackPointer--;
 
-            			    	// D:\\Olle\\Projects\\WikiUml\\source\\Grammar\\WikiUml.g:27:109: ( ';' )?
-            			    	int alt4 = 2;
-            			    	int LA4_0 = input.LA(1);
+            			    	// D:\\Olle\\Projects\\WikiUml\\source\\Grammar\\WikiUml.g:28:109: ( ';' )?
+            			    	int alt8 = 2;
+            			    	int LA8_0 = input.LA(1);
 
-            			    	if ( (LA4_0 == 12) )
+            			    	if ( (LA8_0 == 11) )
             			    	{
-            			    	    alt4 = 1;
+            			    	    alt8 = 1;
             			    	}
-            			    	switch (alt4) 
+            			    	switch (alt8) 
             			    	{
             			    	    case 1 :
-            			    	        // D:\\Olle\\Projects\\WikiUml\\source\\Grammar\\WikiUml.g:27:109: ';'
+            			    	        // D:\\Olle\\Projects\\WikiUml\\source\\Grammar\\WikiUml.g:28:109: ';'
             			    	        {
-            			    	        	Match(input,12,FOLLOW_12_in_methods185); 
+            			    	        	Match(input,11,FOLLOW_11_in_methods194); 
 
             			    	        }
             			    	        break;
@@ -382,14 +460,14 @@ public partial class WikiUmlParser : Parser
             			    break;
 
             			default:
-            			    goto loop5;
+            			    goto loop9;
             	    }
             	} while (true);
 
-            	loop5:
-            		;	// Stops C# compiler whining that label 'loop5' has no statements
+            	loop9:
+            		;	// Stops C# compiler whining that label 'loop9' has no statements
 
-            	methods.Add(m);
+            	if(m != null) methods.Add(m);
 
             }
 
@@ -408,7 +486,7 @@ public partial class WikiUmlParser : Parser
 
 
     // $ANTLR start "method"
-    // D:\\Olle\\Projects\\WikiUml\\source\\Grammar\\WikiUml.g:28:1: method returns [Method method] : m= ID '(' ')' ;
+    // D:\\Olle\\Projects\\WikiUml\\source\\Grammar\\WikiUml.g:29:1: method returns [Method method] : m= ID '(' ')' ;
     public Method method() // throws RecognitionException [1]
     {   
         Method method = default(Method);
@@ -418,12 +496,12 @@ public partial class WikiUmlParser : Parser
         method = new Method();
         try 
     	{
-            // D:\\Olle\\Projects\\WikiUml\\source\\Grammar\\WikiUml.g:28:63: (m= ID '(' ')' )
-            // D:\\Olle\\Projects\\WikiUml\\source\\Grammar\\WikiUml.g:28:65: m= ID '(' ')'
+            // D:\\Olle\\Projects\\WikiUml\\source\\Grammar\\WikiUml.g:29:63: (m= ID '(' ')' )
+            // D:\\Olle\\Projects\\WikiUml\\source\\Grammar\\WikiUml.g:29:65: m= ID '(' ')'
             {
-            	m=(IToken)Match(input,ID,FOLLOW_ID_in_method209); 
-            	Match(input,13,FOLLOW_13_in_method210); 
-            	Match(input,14,FOLLOW_14_in_method211); 
+            	m=(IToken)Match(input,ID,FOLLOW_ID_in_method218); 
+            	Match(input,12,FOLLOW_12_in_method219); 
+            	Match(input,13,FOLLOW_13_in_method220); 
             	method.Name= ((m != null) ? m.Text : null);
 
             }
@@ -450,23 +528,24 @@ public partial class WikiUmlParser : Parser
 
  
 
-    public static readonly BitSet FOLLOW_umlclass_in_diagram60 = new BitSet(new ulong[]{0x0000000000000010UL});
-    public static readonly BitSet FOLLOW_NEWLINE_in_diagram62 = new BitSet(new ulong[]{0x0000000000000002UL});
-    public static readonly BitSet FOLLOW_LBRACK_in_umlclass86 = new BitSet(new ulong[]{0x0000000000000040UL});
-    public static readonly BitSet FOLLOW_ID_in_umlclass92 = new BitSet(new ulong[]{0x0000000000000100UL});
-    public static readonly BitSet FOLLOW_members_in_umlclass98 = new BitSet(new ulong[]{0x0000000000000100UL});
-    public static readonly BitSet FOLLOW_methods_in_umlclass104 = new BitSet(new ulong[]{0x0000000000000080UL});
-    public static readonly BitSet FOLLOW_RBRACK_in_umlclass106 = new BitSet(new ulong[]{0x0000000000000002UL});
-    public static readonly BitSet FOLLOW_SECTIONSEPPERATOR_in_members126 = new BitSet(new ulong[]{0x0000000000000042UL});
-    public static readonly BitSet FOLLOW_member_in_members133 = new BitSet(new ulong[]{0x0000000000001042UL});
-    public static readonly BitSet FOLLOW_12_in_members135 = new BitSet(new ulong[]{0x0000000000000042UL});
-    public static readonly BitSet FOLLOW_ID_in_member158 = new BitSet(new ulong[]{0x0000000000000002UL});
-    public static readonly BitSet FOLLOW_SECTIONSEPPERATOR_in_methods176 = new BitSet(new ulong[]{0x0000000000000042UL});
-    public static readonly BitSet FOLLOW_method_in_methods183 = new BitSet(new ulong[]{0x0000000000001042UL});
-    public static readonly BitSet FOLLOW_12_in_methods185 = new BitSet(new ulong[]{0x0000000000000042UL});
-    public static readonly BitSet FOLLOW_ID_in_method209 = new BitSet(new ulong[]{0x0000000000002000UL});
-    public static readonly BitSet FOLLOW_13_in_method210 = new BitSet(new ulong[]{0x0000000000004000UL});
-    public static readonly BitSet FOLLOW_14_in_method211 = new BitSet(new ulong[]{0x0000000000000002UL});
+    public static readonly BitSet FOLLOW_umlclass_in_diagram60 = new BitSet(new ulong[]{0x0000000000000032UL});
+    public static readonly BitSet FOLLOW_WS_in_diagram62 = new BitSet(new ulong[]{0x0000000000000022UL});
+    public static readonly BitSet FOLLOW_umlclass_in_diagram65 = new BitSet(new ulong[]{0x0000000000000002UL});
+    public static readonly BitSet FOLLOW_LBRACK_in_umlclass91 = new BitSet(new ulong[]{0x00000000000001C0UL});
+    public static readonly BitSet FOLLOW_ID_in_umlclass97 = new BitSet(new ulong[]{0x0000000000000180UL});
+    public static readonly BitSet FOLLOW_members_in_umlclass105 = new BitSet(new ulong[]{0x0000000000000100UL});
+    public static readonly BitSet FOLLOW_methods_in_umlclass111 = new BitSet(new ulong[]{0x0000000000000080UL});
+    public static readonly BitSet FOLLOW_RBRACK_in_umlclass115 = new BitSet(new ulong[]{0x0000000000000002UL});
+    public static readonly BitSet FOLLOW_SECTIONSEPPERATOR_in_members135 = new BitSet(new ulong[]{0x0000000000000042UL});
+    public static readonly BitSet FOLLOW_member_in_members142 = new BitSet(new ulong[]{0x0000000000000842UL});
+    public static readonly BitSet FOLLOW_11_in_members144 = new BitSet(new ulong[]{0x0000000000000042UL});
+    public static readonly BitSet FOLLOW_ID_in_member167 = new BitSet(new ulong[]{0x0000000000000002UL});
+    public static readonly BitSet FOLLOW_SECTIONSEPPERATOR_in_methods185 = new BitSet(new ulong[]{0x0000000000000042UL});
+    public static readonly BitSet FOLLOW_method_in_methods192 = new BitSet(new ulong[]{0x0000000000000842UL});
+    public static readonly BitSet FOLLOW_11_in_methods194 = new BitSet(new ulong[]{0x0000000000000042UL});
+    public static readonly BitSet FOLLOW_ID_in_method218 = new BitSet(new ulong[]{0x0000000000001000UL});
+    public static readonly BitSet FOLLOW_12_in_method219 = new BitSet(new ulong[]{0x0000000000002000UL});
+    public static readonly BitSet FOLLOW_13_in_method220 = new BitSet(new ulong[]{0x0000000000000002UL});
 
 }
 }
