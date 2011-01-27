@@ -14,7 +14,7 @@ using System.Collections.Generic;
 diagram returns [Diagram result] 
 @init {
 	result = new Diagram();
-} : (u = umlclass WS? umlclass?) { $result.umlClasses.Add(u);} | ;
+} : WS* (u = umlclass { $result.umlClasses.Add(u);} WS?)+  | ;
 
 
 umlclass returns [UmlClass result] 

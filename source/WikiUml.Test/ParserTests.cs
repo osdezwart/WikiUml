@@ -41,7 +41,7 @@ namespace WikiUml.Test
             var diagram = ParseWikiUml("[Foo]\r\n[Bar]");
             Assert.AreEqual(2, diagram.umlClasses.Count);
             Assert.AreEqual("Foo", diagram.umlClasses[0].Name);
-            Assert.AreEqual("Bar", diagram.umlClasses[0].Name);
+            Assert.AreEqual("Bar", diagram.umlClasses[1].Name);
         }
 
         [Test]
@@ -50,7 +50,7 @@ namespace WikiUml.Test
             var diagram = ParseWikiUml("[Foo][Bar]");
             Assert.AreEqual(2, diagram.umlClasses.Count);
             Assert.AreEqual("Foo", diagram.umlClasses[0].Name);
-            Assert.AreEqual("Bar", diagram.umlClasses[0].Name);
+            Assert.AreEqual("Bar", diagram.umlClasses[1].Name);
         }
 
         [Test]
@@ -59,7 +59,7 @@ namespace WikiUml.Test
             var diagram = ParseWikiUml("    [Foo] [Bar]\r\n");
             Assert.AreEqual(2, diagram.umlClasses.Count);
             Assert.AreEqual("Foo", diagram.umlClasses[0].Name);
-            Assert.AreEqual("Bar", diagram.umlClasses[0].Name);
+            Assert.AreEqual("Bar", diagram.umlClasses[1].Name);
         }
 
         [Test]
@@ -68,7 +68,7 @@ namespace WikiUml.Test
             var diagram = ParseWikiUml("[Foo]\n[Bar]");
             Assert.AreEqual(2, diagram.umlClasses.Count);
             Assert.AreEqual("Foo", diagram.umlClasses[0].Name);
-            Assert.AreEqual("Bar", diagram.umlClasses[0].Name);
+            Assert.AreEqual("Bar", diagram.umlClasses[1].Name);
         }
 
         private Diagram ParseWikiUml(string wikiUml)
