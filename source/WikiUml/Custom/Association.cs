@@ -18,5 +18,11 @@
                 value.Associations.Add(this);
             }
         }
+
+        public string LabelA { get; set; }
+        public string LabelB { get; set; }
+        public string MultiplicityA { get; set; }
+        public string MultiplicityB { get; set; }
+        
     }
 }

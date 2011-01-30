@@ -1,4 +1,4 @@
-// $ANTLR 3.1.1 D:\\Olle\\Projects\\WikiUml\\source\\Grammar\\WikiUml.g 2011-01-30 16:09:29
+// $ANTLR 3.1.1 D:\\Olle\\Projects\\WikiUml\\source\\Grammar\\WikiUml.g 2011-01-30 22:51:13
 // The variable 'variable' is assigned but its value is never used.
 #pragma warning disable 168, 219
 // Unreachable code detected.
@@ -34,27 +34,35 @@ public partial class WikiUmlParser : Parser
 		"DIRECTIONAL_ASSOCIATION", 
 		"BIDECTIONAL_ASSOCIATION", 
 		"INHERRITANCE_ASSOCIATION", 
+		"MM", 
 		"VALIDSTR", 
 		"ALPHACHAR", 
+		"DIGIT", 
+		"INTEGER", 
 		"';'", 
 		"'('", 
-		"')'"
+		"')'", 
+		"'\"'"
     };
 
+    public const int INTEGER = 17;
     public const int RBRACK = 7;
     public const int INHERRITANCE_ASSOCIATION = 12;
     public const int LBRACK = 5;
-    public const int T__16 = 16;
-    public const int WS = 4;
-    public const int T__15 = 15;
     public const int BIDECTIONAL_ASSOCIATION = 11;
-    public const int T__17 = 17;
-    public const int SIMPLE_ASSOCIATION = 9;
-    public const int ALPHACHAR = 14;
-    public const int SECTIONSEPPERATOR = 8;
+    public const int T__21 = 21;
+    public const int T__20 = 20;
     public const int ID = 6;
     public const int EOF = -1;
-    public const int VALIDSTR = 13;
+    public const int VALIDSTR = 14;
+    public const int T__19 = 19;
+    public const int WS = 4;
+    public const int T__18 = 18;
+    public const int MM = 13;
+    public const int SIMPLE_ASSOCIATION = 9;
+    public const int ALPHACHAR = 15;
+    public const int DIGIT = 16;
+    public const int SECTIONSEPPERATOR = 8;
     public const int DIRECTIONAL_ASSOCIATION = 10;
 
     // delegates
@@ -244,7 +252,7 @@ public partial class WikiUmlParser : Parser
             	    int alt4 = 2;
             	    int LA4_0 = input.LA(1);
 
-            	    if ( ((LA4_0 >= SIMPLE_ASSOCIATION && LA4_0 <= INHERRITANCE_ASSOCIATION)) )
+            	    if ( ((LA4_0 >= SIMPLE_ASSOCIATION && LA4_0 <= MM) || LA4_0 == 21) )
             	    {
             	        alt4 = 1;
             	    }
@@ -459,7 +467,7 @@ public partial class WikiUmlParser : Parser
             			    	int alt7 = 2;
             			    	int LA7_0 = input.LA(1);
 
-            			    	if ( (LA7_0 == 15) )
+            			    	if ( (LA7_0 == 18) )
             			    	{
             			    	    alt7 = 1;
             			    	}
@@ -468,7 +476,7 @@ public partial class WikiUmlParser : Parser
             			    	    case 1 :
             			    	        // D:\\Olle\\Projects\\WikiUml\\source\\Grammar\\WikiUml.g:73:109: ';'
             			    	        {
-            			    	        	Match(input,15,FOLLOW_15_in_members175); 
+            			    	        	Match(input,18,FOLLOW_18_in_members175); 
 
             			    	        }
             			    	        break;
@@ -579,7 +587,7 @@ public partial class WikiUmlParser : Parser
             			    	int alt9 = 2;
             			    	int LA9_0 = input.LA(1);
 
-            			    	if ( (LA9_0 == 15) )
+            			    	if ( (LA9_0 == 18) )
             			    	{
             			    	    alt9 = 1;
             			    	}
@@ -588,7 +596,7 @@ public partial class WikiUmlParser : Parser
             			    	    case 1 :
             			    	        // D:\\Olle\\Projects\\WikiUml\\source\\Grammar\\WikiUml.g:76:109: ';'
             			    	        {
-            			    	        	Match(input,15,FOLLOW_15_in_methods225); 
+            			    	        	Match(input,18,FOLLOW_18_in_methods225); 
 
             			    	        }
             			    	        break;
@@ -640,8 +648,8 @@ public partial class WikiUmlParser : Parser
             // D:\\Olle\\Projects\\WikiUml\\source\\Grammar\\WikiUml.g:77:65: m= ID '(' ')'
             {
             	m=(IToken)Match(input,ID,FOLLOW_ID_in_method249); 
-            	Match(input,16,FOLLOW_16_in_method250); 
-            	Match(input,17,FOLLOW_17_in_method251); 
+            	Match(input,19,FOLLOW_19_in_method250); 
+            	Match(input,20,FOLLOW_20_in_method251); 
             	method.Name= ((m != null) ? m.Text : null);
 
             }
@@ -661,19 +669,73 @@ public partial class WikiUmlParser : Parser
 
 
     // $ANTLR start "association"
-    // D:\\Olle\\Projects\\WikiUml\\source\\Grammar\\WikiUml.g:79:1: association returns [Association association] : a= ( SIMPLE_ASSOCIATION | DIRECTIONAL_ASSOCIATION | BIDECTIONAL_ASSOCIATION | INHERRITANCE_ASSOCIATION ) ;
+    // D:\\Olle\\Projects\\WikiUml\\source\\Grammar\\WikiUml.g:79:1: association returns [Association association] : (ma= multiplicity )? (labelA= label )? a= ( SIMPLE_ASSOCIATION | DIRECTIONAL_ASSOCIATION | BIDECTIONAL_ASSOCIATION | INHERRITANCE_ASSOCIATION ) (labelB= label )? (mb= multiplicity )? ;
     public Association association() // throws RecognitionException [1]
     {   
         Association association = default(Association);
 
         IToken a = null;
+        string ma = default(string);
+
+        string labelA = default(string);
+
+        string labelB = default(string);
+
+        string mb = default(string);
+
 
         association = new Association();
         try 
     	{
-            // D:\\Olle\\Projects\\WikiUml\\source\\Grammar\\WikiUml.g:79:87: (a= ( SIMPLE_ASSOCIATION | DIRECTIONAL_ASSOCIATION | BIDECTIONAL_ASSOCIATION | INHERRITANCE_ASSOCIATION ) )
-            // D:\\Olle\\Projects\\WikiUml\\source\\Grammar\\WikiUml.g:79:89: a= ( SIMPLE_ASSOCIATION | DIRECTIONAL_ASSOCIATION | BIDECTIONAL_ASSOCIATION | INHERRITANCE_ASSOCIATION )
+            // D:\\Olle\\Projects\\WikiUml\\source\\Grammar\\WikiUml.g:80:2: ( (ma= multiplicity )? (labelA= label )? a= ( SIMPLE_ASSOCIATION | DIRECTIONAL_ASSOCIATION | BIDECTIONAL_ASSOCIATION | INHERRITANCE_ASSOCIATION ) (labelB= label )? (mb= multiplicity )? )
+            // D:\\Olle\\Projects\\WikiUml\\source\\Grammar\\WikiUml.g:81:2: (ma= multiplicity )? (labelA= label )? a= ( SIMPLE_ASSOCIATION | DIRECTIONAL_ASSOCIATION | BIDECTIONAL_ASSOCIATION | INHERRITANCE_ASSOCIATION ) (labelB= label )? (mb= multiplicity )?
             {
+            	// D:\\Olle\\Projects\\WikiUml\\source\\Grammar\\WikiUml.g:81:5: (ma= multiplicity )?
+            	int alt11 = 2;
+            	int LA11_0 = input.LA(1);
+
+            	if ( (LA11_0 == MM) )
+            	{
+            	    alt11 = 1;
+            	}
+            	switch (alt11) 
+            	{
+            	    case 1 :
+            	        // D:\\Olle\\Projects\\WikiUml\\source\\Grammar\\WikiUml.g:81:5: ma= multiplicity
+            	        {
+            	        	PushFollow(FOLLOW_multiplicity_in_association276);
+            	        	ma = multiplicity();
+            	        	state.followingStackPointer--;
+
+
+            	        }
+            	        break;
+
+            	}
+
+            	// D:\\Olle\\Projects\\WikiUml\\source\\Grammar\\WikiUml.g:81:28: (labelA= label )?
+            	int alt12 = 2;
+            	int LA12_0 = input.LA(1);
+
+            	if ( (LA12_0 == 21) )
+            	{
+            	    alt12 = 1;
+            	}
+            	switch (alt12) 
+            	{
+            	    case 1 :
+            	        // D:\\Olle\\Projects\\WikiUml\\source\\Grammar\\WikiUml.g:81:28: labelA= label
+            	        {
+            	        	PushFollow(FOLLOW_label_in_association283);
+            	        	labelA = label();
+            	        	state.followingStackPointer--;
+
+
+            	        }
+            	        break;
+
+            	}
+
             	a = (IToken)input.LT(1);
             	if ( (input.LA(1) >= SIMPLE_ASSOCIATION && input.LA(1) <= INHERRITANCE_ASSOCIATION) ) 
             	{
@@ -686,11 +748,61 @@ public partial class WikiUmlParser : Parser
             	    throw mse;
             	}
 
+            	// D:\\Olle\\Projects\\WikiUml\\source\\Grammar\\WikiUml.g:81:150: (labelB= label )?
+            	int alt13 = 2;
+            	int LA13_0 = input.LA(1);
+
+            	if ( (LA13_0 == 21) )
+            	{
+            	    alt13 = 1;
+            	}
+            	switch (alt13) 
+            	{
+            	    case 1 :
+            	        // D:\\Olle\\Projects\\WikiUml\\source\\Grammar\\WikiUml.g:81:150: labelB= label
+            	        {
+            	        	PushFollow(FOLLOW_label_in_association312);
+            	        	labelB = label();
+            	        	state.followingStackPointer--;
+
+
+            	        }
+            	        break;
+
+            	}
+
+            	// D:\\Olle\\Projects\\WikiUml\\source\\Grammar\\WikiUml.g:81:163: (mb= multiplicity )?
+            	int alt14 = 2;
+            	int LA14_0 = input.LA(1);
+
+            	if ( (LA14_0 == MM) )
+            	{
+            	    alt14 = 1;
+            	}
+            	switch (alt14) 
+            	{
+            	    case 1 :
+            	        // D:\\Olle\\Projects\\WikiUml\\source\\Grammar\\WikiUml.g:81:163: mb= multiplicity
+            	        {
+            	        	PushFollow(FOLLOW_multiplicity_in_association320);
+            	        	mb = multiplicity();
+            	        	state.followingStackPointer--;
+
+
+            	        }
+            	        break;
+
+            	}
+
 
             		if(a.Type == SIMPLE_ASSOCIATION) association.Type = AssociationType.Simple; 
             		else if(a.Type == DIRECTIONAL_ASSOCIATION) association.Type = AssociationType.Directional;
             		else if(a.Type == BIDECTIONAL_ASSOCIATION) association.Type = AssociationType.Bidirectional;	
             		else if(a.Type == INHERRITANCE_ASSOCIATION) association.Type = AssociationType.Inherritance;	
+            		association.LabelA = labelA;
+            		association.LabelB = labelB;
+            		association.MultiplicityA = ma;
+            		association.MultiplicityB = mb;
 
 
             }
@@ -708,6 +820,72 @@ public partial class WikiUmlParser : Parser
     }
     // $ANTLR end "association"
 
+
+    // $ANTLR start "multiplicity"
+    // D:\\Olle\\Projects\\WikiUml\\source\\Grammar\\WikiUml.g:93:1: multiplicity returns [string result] : m= MM ;
+    public string multiplicity() // throws RecognitionException [1]
+    {   
+        string result = default(string);
+
+        IToken m = null;
+
+        try 
+    	{
+            // D:\\Olle\\Projects\\WikiUml\\source\\Grammar\\WikiUml.g:93:38: (m= MM )
+            // D:\\Olle\\Projects\\WikiUml\\source\\Grammar\\WikiUml.g:93:40: m= MM
+            {
+            	m=(IToken)Match(input,MM,FOLLOW_MM_in_multiplicity339); 
+            	result = m.Text;
+
+            }
+
+        }
+        catch (RecognitionException re) 
+    	{
+            ReportError(re);
+            Recover(input,re);
+        }
+        finally 
+    	{
+        }
+        return result;
+    }
+    // $ANTLR end "multiplicity"
+
+
+    // $ANTLR start "label"
+    // D:\\Olle\\Projects\\WikiUml\\source\\Grammar\\WikiUml.g:94:1: label returns [string result] : '\"' l= ID '\"' ;
+    public string label() // throws RecognitionException [1]
+    {   
+        string result = default(string);
+
+        IToken l = null;
+
+        try 
+    	{
+            // D:\\Olle\\Projects\\WikiUml\\source\\Grammar\\WikiUml.g:94:31: ( '\"' l= ID '\"' )
+            // D:\\Olle\\Projects\\WikiUml\\source\\Grammar\\WikiUml.g:94:34: '\"' l= ID '\"'
+            {
+            	Match(input,21,FOLLOW_21_in_label353); 
+            	l=(IToken)Match(input,ID,FOLLOW_ID_in_label359); 
+            	Match(input,21,FOLLOW_21_in_label361); 
+            	result = l.Text;
+
+            }
+
+        }
+        catch (RecognitionException re) 
+    	{
+            ReportError(re);
+            Recover(input,re);
+        }
+        finally 
+    	{
+        }
+        return result;
+    }
+    // $ANTLR end "label"
+
     // Delegated rules
 
 
@@ -720,25 +898,33 @@ public partial class WikiUmlParser : Parser
     public static readonly BitSet FOLLOW_associated_classes_in_diagram62 = new BitSet(new ulong[]{0x0000000000000030UL});
     public static readonly BitSet FOLLOW_EOF_in_diagram66 = new BitSet(new ulong[]{0x0000000000000002UL});
     public static readonly BitSet FOLLOW_WS_in_associated_classes85 = new BitSet(new ulong[]{0x0000000000000030UL});
-    public static readonly BitSet FOLLOW_umlclass_in_associated_classes90 = new BitSet(new ulong[]{0x0000000000001E02UL});
+    public static readonly BitSet FOLLOW_umlclass_in_associated_classes90 = new BitSet(new ulong[]{0x0000000000203E02UL});
     public static readonly BitSet FOLLOW_association_in_associated_classes97 = new BitSet(new ulong[]{0x0000000000000030UL});
-    public static readonly BitSet FOLLOW_umlclass_in_associated_classes101 = new BitSet(new ulong[]{0x0000000000001E02UL});
+    public static readonly BitSet FOLLOW_umlclass_in_associated_classes101 = new BitSet(new ulong[]{0x0000000000203E02UL});
     public static readonly BitSet FOLLOW_LBRACK_in_umlclass123 = new BitSet(new ulong[]{0x00000000000001C0UL});
     public static readonly BitSet FOLLOW_ID_in_umlclass129 = new BitSet(new ulong[]{0x0000000000000180UL});
     public static readonly BitSet FOLLOW_members_in_umlclass137 = new BitSet(new ulong[]{0x0000000000000100UL});
     public static readonly BitSet FOLLOW_methods_in_umlclass143 = new BitSet(new ulong[]{0x0000000000000080UL});
     public static readonly BitSet FOLLOW_RBRACK_in_umlclass147 = new BitSet(new ulong[]{0x0000000000000002UL});
     public static readonly BitSet FOLLOW_SECTIONSEPPERATOR_in_members166 = new BitSet(new ulong[]{0x0000000000000042UL});
-    public static readonly BitSet FOLLOW_member_in_members173 = new BitSet(new ulong[]{0x0000000000008042UL});
-    public static readonly BitSet FOLLOW_15_in_members175 = new BitSet(new ulong[]{0x0000000000000042UL});
+    public static readonly BitSet FOLLOW_member_in_members173 = new BitSet(new ulong[]{0x0000000000040042UL});
+    public static readonly BitSet FOLLOW_18_in_members175 = new BitSet(new ulong[]{0x0000000000000042UL});
     public static readonly BitSet FOLLOW_ID_in_member198 = new BitSet(new ulong[]{0x0000000000000002UL});
     public static readonly BitSet FOLLOW_SECTIONSEPPERATOR_in_methods216 = new BitSet(new ulong[]{0x0000000000000042UL});
-    public static readonly BitSet FOLLOW_method_in_methods223 = new BitSet(new ulong[]{0x0000000000008042UL});
-    public static readonly BitSet FOLLOW_15_in_methods225 = new BitSet(new ulong[]{0x0000000000000042UL});
-    public static readonly BitSet FOLLOW_ID_in_method249 = new BitSet(new ulong[]{0x0000000000010000UL});
-    public static readonly BitSet FOLLOW_16_in_method250 = new BitSet(new ulong[]{0x0000000000020000UL});
-    public static readonly BitSet FOLLOW_17_in_method251 = new BitSet(new ulong[]{0x0000000000000002UL});
-    public static readonly BitSet FOLLOW_set_in_association272 = new BitSet(new ulong[]{0x0000000000000002UL});
+    public static readonly BitSet FOLLOW_method_in_methods223 = new BitSet(new ulong[]{0x0000000000040042UL});
+    public static readonly BitSet FOLLOW_18_in_methods225 = new BitSet(new ulong[]{0x0000000000000042UL});
+    public static readonly BitSet FOLLOW_ID_in_method249 = new BitSet(new ulong[]{0x0000000000080000UL});
+    public static readonly BitSet FOLLOW_19_in_method250 = new BitSet(new ulong[]{0x0000000000100000UL});
+    public static readonly BitSet FOLLOW_20_in_method251 = new BitSet(new ulong[]{0x0000000000000002UL});
+    public static readonly BitSet FOLLOW_multiplicity_in_association276 = new BitSet(new ulong[]{0x0000000000201E00UL});
+    public static readonly BitSet FOLLOW_label_in_association283 = new BitSet(new ulong[]{0x0000000000001E00UL});
+    public static readonly BitSet FOLLOW_set_in_association291 = new BitSet(new ulong[]{0x0000000000202002UL});
+    public static readonly BitSet FOLLOW_label_in_association312 = new BitSet(new ulong[]{0x0000000000002002UL});
+    public static readonly BitSet FOLLOW_multiplicity_in_association320 = new BitSet(new ulong[]{0x0000000000000002UL});
+    public static readonly BitSet FOLLOW_MM_in_multiplicity339 = new BitSet(new ulong[]{0x0000000000000002UL});
+    public static readonly BitSet FOLLOW_21_in_label353 = new BitSet(new ulong[]{0x0000000000000040UL});
+    public static readonly BitSet FOLLOW_ID_in_label359 = new BitSet(new ulong[]{0x0000000000200000UL});
+    public static readonly BitSet FOLLOW_21_in_label361 = new BitSet(new ulong[]{0x0000000000000002UL});
 
 }
 }

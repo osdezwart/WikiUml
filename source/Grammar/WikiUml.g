@@ -76,13 +76,22 @@ member 	returns [Member member] @init{member = new Member();}:	i = ID {member.Na
 methods returns [List<Method> methods] @init{methods = new List<Method>();} :	SECTIONSEPPERATOR (m = method ';'?)*{if(m != null) methods.Add(m);};
 method 	returns [Method method] @init{method = new Method();} :	m = ID'('')'{method.Name= $m.text;};
 
-association returns [Association association] @init{association = new Association();} : a = (SIMPLE_ASSOCIATION | DIRECTIONAL_ASSOCIATION |  BIDECTIONAL_ASSOCIATION | INHERRITANCE_ASSOCIATION) 
+association returns [Association association] @init{association = new Association();} 
+	: 
+	ma = multiplicity? labelA = label?  a = (SIMPLE_ASSOCIATION | DIRECTIONAL_ASSOCIATION |  BIDECTIONAL_ASSOCIATION | INHERRITANCE_ASSOCIATION) labelB = label?  mb = multiplicity?
 {
 	if(a.Type == SIMPLE_ASSOCIATION) association.Type = AssociationType.Simple; 
 	else if(a.Type == DIRECTIONAL_ASSOCIATION) association.Type = AssociationType.Directional;
 	else if(a.Type == BIDECTIONAL_ASSOCIATION) association.Type = AssociationType.Bidirectional;	
 	else if(a.Type == INHERRITANCE_ASSOCIATION) association.Type = AssociationType.Inherritance;	
+	association.LabelA = labelA;
+	association.LabelB = labelB;
+	association.MultiplicityA = ma;
+	association.MultiplicityB = mb;
 };
+
+multiplicity returns [string result] : m = MM {result = $m.Text;};
+label returns [string result] :  '"' l = ID '"' {result = $l.Text;};	
 
 RBRACK 	:	 ']';
 LBRACK 	:	 '[';
@@ -94,6 +103,8 @@ BIDECTIONAL_ASSOCIATION 	:	 '<->';
 INHERRITANCE_ASSOCIATION 	:	 '^-';
 
 ID	:    VALIDSTR;
+
+
        
 fragment ALPHACHAR 
 	:  (   'a'..'z'
@@ -101,11 +112,20 @@ fragment ALPHACHAR
         |  '_'
        );
 
+fragment DIGIT	:	'0'..'9'
+	;
+fragment INTEGER
+	:	DIGIT (DIGIT)*
+	;
+
+//INTEGER 	: '0'..'9'+;
+
+MM 	:	 (INTEGER | '*') ('..' (INTEGER | '*'))?;
 	   
 fragment VALIDSTR
     :  ALPHACHAR
         (  ALPHACHAR
-         |  '0'..'9'
+         |  INTEGER
         )*
     ;
     

@@ -105,13 +105,52 @@ namespace WikiUml.Test
         [Test]
         public void parsing_diagram_with_simple_association_and_multiplicity_between_two_classes_should_return_two_associated_classes()
         {
-            Assert.Fail("TO BE IMPLEMENTED");
+            var diagram = ParseWikiUml("[Foo]1-1..*[Bar]");
+
+            Assert.AreEqual(2, diagram.umlClasses.Count);
+            Assert.AreEqual(AssociationType.Simple, diagram.umlClasses[0].Associations[0].Type);
+            Assert.AreEqual(AssociationType.Simple, diagram.umlClasses[1].Associations[0].Type);
+            Assert.AreEqual(diagram.umlClasses[0], diagram.umlClasses[0].Associations[0].UmlClassA);
+            Assert.AreEqual(diagram.umlClasses[1], diagram.umlClasses[1].Associations[0].UmlClassB);
+            Assert.AreEqual("1", diagram.umlClasses[0].Associations[0].MultiplicityA);
+            Assert.AreEqual("1..*", diagram.umlClasses[0].Associations[0].MultiplicityB);
+            Assert.AreEqual("1", diagram.umlClasses[1].Associations[0].MultiplicityA);
+            Assert.AreEqual("1..*", diagram.umlClasses[1].Associations[0].MultiplicityB);
         }
 
         [Test]
         public void parsing_diagram_with_simple_association_and_labels_between_two_classes_should_return_two_associated_classes()
         {
-            Assert.Fail("TO BE IMPLEMENTED");
+            var diagram = ParseWikiUml("[Foo]\"LabelA\"-\"LabelB\"[Bar]");
+            Assert.AreEqual(2, diagram.umlClasses.Count);
+            Assert.AreEqual(AssociationType.Simple, diagram.umlClasses[0].Associations[0].Type);
+            Assert.AreEqual(AssociationType.Simple, diagram.umlClasses[1].Associations[0].Type);
+            Assert.AreEqual(diagram.umlClasses[0], diagram.umlClasses[0].Associations[0].UmlClassA);
+            Assert.AreEqual(diagram.umlClasses[1], diagram.umlClasses[1].Associations[0].UmlClassB);
+            Assert.AreEqual("LabelA", diagram.umlClasses[0].Associations[0].LabelA);
+            Assert.AreEqual("LabelB", diagram.umlClasses[0].Associations[0].LabelB);
+            Assert.AreEqual("LabelA", diagram.umlClasses[1].Associations[0].LabelA);
+            Assert.AreEqual("LabelB", diagram.umlClasses[1].Associations[0].LabelB);
+        }
+
+        [Test]
+        public void parsing_diagram_with_simple_association_and_labels_and_multiplicity_between_two_classes_should_return_two_associated_classes()
+        {
+            var diagram = ParseWikiUml("[Foo]1\"LabelA\"-\"LabelB\"1..*[Bar]");
+            Assert.AreEqual(2, diagram.umlClasses.Count);
+            Assert.AreEqual(AssociationType.Simple, diagram.umlClasses[0].Associations[0].Type);
+            Assert.AreEqual(AssociationType.Simple, diagram.umlClasses[1].Associations[0].Type);
+            Assert.AreEqual(diagram.umlClasses[0], diagram.umlClasses[0].Associations[0].UmlClassA);
+            Assert.AreEqual(diagram.umlClasses[1], diagram.umlClasses[1].Associations[0].UmlClassB);
+            Assert.AreEqual("1", diagram.umlClasses[0].Associations[0].MultiplicityA);
+            Assert.AreEqual("1..*", diagram.umlClasses[0].Associations[0].MultiplicityB);
+            Assert.AreEqual("1", diagram.umlClasses[1].Associations[0].MultiplicityA);
+            Assert.AreEqual("1..*", diagram.umlClasses[1].Associations[0].MultiplicityB);
+            Assert.AreEqual("LabelA", diagram.umlClasses[0].Associations[0].LabelA);
+            Assert.AreEqual("LabelB", diagram.umlClasses[0].Associations[0].LabelB);
+            Assert.AreEqual("LabelA", diagram.umlClasses[1].Associations[0].LabelA);
+            Assert.AreEqual("LabelB", diagram.umlClasses[1].Associations[0].LabelB);
+
         }
 
         [Test]
