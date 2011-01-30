@@ -48,6 +48,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Custom\Association.cs" />
+    <Compile Include="Custom\AssociationType.cs" />
     <Compile Include="Custom\Diagram.cs" />
     <Compile Include="Custom\UmlClass.cs" />
     <Compile Include="Custom\WikiUmlParser.cs" />

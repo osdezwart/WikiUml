@@ -1,4 +1,4 @@
-// $ANTLR 3.1.1 D:\\Olle\\Projects\\WikiUml\\source\\Grammar\\WikiUml.g 2011-01-27 18:57:03
+// $ANTLR 3.1.1 D:\\Olle\\Projects\\WikiUml\\source\\Grammar\\WikiUml.g 2011-01-30 15:59:24
 // The variable 'variable' is assigned but its value is never used.
 #pragma warning disable 168, 219
 // Unreachable code detected.
@@ -16,15 +16,18 @@ using Stack 		= Antlr.Runtime.Collections.StackList;
 public partial class WikiUmlLexer : Lexer {
     public const int RBRACK = 7;
     public const int LBRACK = 5;
+    public const int T__16 = 16;
     public const int WS = 4;
-    public const int T__12 = 12;
-    public const int T__11 = 11;
-    public const int T__13 = 13;
-    public const int ALPHACHAR = 10;
+    public const int T__15 = 15;
+    public const int BIDECTIONAL_ASSOCIATION = 11;
+    public const int T__14 = 14;
+    public const int SIMPLE_ASSOCIATION = 9;
+    public const int ALPHACHAR = 13;
     public const int SECTIONSEPPERATOR = 8;
     public const int ID = 6;
     public const int EOF = -1;
-    public const int VALIDSTR = 9;
+    public const int VALIDSTR = 12;
+    public const int DIRECTIONAL_ASSOCIATION = 10;
 
     // delegates
     // delegators
@@ -47,12 +50,12 @@ public partial class WikiUmlLexer : Lexer {
     	get { return "D:\\Olle\\Projects\\WikiUml\\source\\Grammar\\WikiUml.g";} 
     }
 
-    // $ANTLR start "T__11"
-    public void mT__11() // throws RecognitionException [2]
+    // $ANTLR start "T__14"
+    public void mT__14() // throws RecognitionException [2]
     {
     		try
     		{
-            int _type = T__11;
+            int _type = T__14;
     	int _channel = DEFAULT_TOKEN_CHANNEL;
             // D:\\Olle\\Projects\\WikiUml\\source\\Grammar\\WikiUml.g:9:7: ( ';' )
             // D:\\Olle\\Projects\\WikiUml\\source\\Grammar\\WikiUml.g:9:9: ';'
@@ -68,14 +71,14 @@ public partial class WikiUmlLexer : Lexer {
     	{
         }
     }
-    // $ANTLR end "T__11"
+    // $ANTLR end "T__14"
 
-    // $ANTLR start "T__12"
-    public void mT__12() // throws RecognitionException [2]
+    // $ANTLR start "T__15"
+    public void mT__15() // throws RecognitionException [2]
     {
     		try
     		{
-            int _type = T__12;
+            int _type = T__15;
     	int _channel = DEFAULT_TOKEN_CHANNEL;
             // D:\\Olle\\Projects\\WikiUml\\source\\Grammar\\WikiUml.g:10:7: ( '(' )
             // D:\\Olle\\Projects\\WikiUml\\source\\Grammar\\WikiUml.g:10:9: '('
@@ -91,14 +94,14 @@ public partial class WikiUmlLexer : Lexer {
     	{
         }
     }
-    // $ANTLR end "T__12"
+    // $ANTLR end "T__15"
 
-    // $ANTLR start "T__13"
-    public void mT__13() // throws RecognitionException [2]
+    // $ANTLR start "T__16"
+    public void mT__16() // throws RecognitionException [2]
     {
     		try
     		{
-            int _type = T__13;
+            int _type = T__16;
     	int _channel = DEFAULT_TOKEN_CHANNEL;
             // D:\\Olle\\Projects\\WikiUml\\source\\Grammar\\WikiUml.g:11:7: ( ')' )
             // D:\\Olle\\Projects\\WikiUml\\source\\Grammar\\WikiUml.g:11:9: ')'
@@ -114,7 +117,7 @@ public partial class WikiUmlLexer : Lexer {
     	{
         }
     }
-    // $ANTLR end "T__13"
+    // $ANTLR end "T__16"
 
     // $ANTLR start "RBRACK"
     public void mRBRACK() // throws RecognitionException [2]
@@ -123,8 +126,8 @@ public partial class WikiUmlLexer : Lexer {
     		{
             int _type = RBRACK;
     	int _channel = DEFAULT_TOKEN_CHANNEL;
-            // D:\\Olle\\Projects\\WikiUml\\source\\Grammar\\WikiUml.g:32:9: ( ']' )
-            // D:\\Olle\\Projects\\WikiUml\\source\\Grammar\\WikiUml.g:32:12: ']'
+            // D:\\Olle\\Projects\\WikiUml\\source\\Grammar\\WikiUml.g:86:9: ( ']' )
+            // D:\\Olle\\Projects\\WikiUml\\source\\Grammar\\WikiUml.g:86:12: ']'
             {
             	Match(']'); 
 
@@ -146,8 +149,8 @@ public partial class WikiUmlLexer : Lexer {
     		{
             int _type = LBRACK;
     	int _channel = DEFAULT_TOKEN_CHANNEL;
-            // D:\\Olle\\Projects\\WikiUml\\source\\Grammar\\WikiUml.g:33:9: ( '[' )
-            // D:\\Olle\\Projects\\WikiUml\\source\\Grammar\\WikiUml.g:33:12: '['
+            // D:\\Olle\\Projects\\WikiUml\\source\\Grammar\\WikiUml.g:87:9: ( '[' )
+            // D:\\Olle\\Projects\\WikiUml\\source\\Grammar\\WikiUml.g:87:12: '['
             {
             	Match('['); 
 
@@ -169,8 +172,8 @@ public partial class WikiUmlLexer : Lexer {
     		{
             int _type = SECTIONSEPPERATOR;
     	int _channel = DEFAULT_TOKEN_CHANNEL;
-            // D:\\Olle\\Projects\\WikiUml\\source\\Grammar\\WikiUml.g:34:19: ( '|' )
-            // D:\\Olle\\Projects\\WikiUml\\source\\Grammar\\WikiUml.g:34:21: '|'
+            // D:\\Olle\\Projects\\WikiUml\\source\\Grammar\\WikiUml.g:88:19: ( '|' )
+            // D:\\Olle\\Projects\\WikiUml\\source\\Grammar\\WikiUml.g:88:21: '|'
             {
             	Match('|'); 
 
@@ -185,6 +188,108 @@ public partial class WikiUmlLexer : Lexer {
     }
     // $ANTLR end "SECTIONSEPPERATOR"
 
+    // $ANTLR start "SIMPLE_ASSOCIATION"
+    public void mSIMPLE_ASSOCIATION() // throws RecognitionException [2]
+    {
+    		try
+    		{
+            int _type = SIMPLE_ASSOCIATION;
+    	int _channel = DEFAULT_TOKEN_CHANNEL;
+            // D:\\Olle\\Projects\\WikiUml\\source\\Grammar\\WikiUml.g:90:21: ( '-' )
+            // D:\\Olle\\Projects\\WikiUml\\source\\Grammar\\WikiUml.g:90:24: '-'
+            {
+            	Match('-'); 
+
+            }
+
+            state.type = _type;
+            state.channel = _channel;
+        }
+        finally 
+    	{
+        }
+    }
+    // $ANTLR end "SIMPLE_ASSOCIATION"
+
+    // $ANTLR start "DIRECTIONAL_ASSOCIATION"
+    public void mDIRECTIONAL_ASSOCIATION() // throws RecognitionException [2]
+    {
+    		try
+    		{
+            int _type = DIRECTIONAL_ASSOCIATION;
+    	int _channel = DEFAULT_TOKEN_CHANNEL;
+            // D:\\Olle\\Projects\\WikiUml\\source\\Grammar\\WikiUml.g:91:26: ( '<-' | '->' )
+            int alt1 = 2;
+            int LA1_0 = input.LA(1);
+
+            if ( (LA1_0 == '<') )
+            {
+                alt1 = 1;
+            }
+            else if ( (LA1_0 == '-') )
+            {
+                alt1 = 2;
+            }
+            else 
+            {
+                NoViableAltException nvae_d1s0 =
+                    new NoViableAltException("", 1, 0, input);
+
+                throw nvae_d1s0;
+            }
+            switch (alt1) 
+            {
+                case 1 :
+                    // D:\\Olle\\Projects\\WikiUml\\source\\Grammar\\WikiUml.g:91:29: '<-'
+                    {
+                    	Match("<-"); 
+
+
+                    }
+                    break;
+                case 2 :
+                    // D:\\Olle\\Projects\\WikiUml\\source\\Grammar\\WikiUml.g:91:36: '->'
+                    {
+                    	Match("->"); 
+
+
+                    }
+                    break;
+
+            }
+            state.type = _type;
+            state.channel = _channel;
+        }
+        finally 
+    	{
+        }
+    }
+    // $ANTLR end "DIRECTIONAL_ASSOCIATION"
+
+    // $ANTLR start "BIDECTIONAL_ASSOCIATION"
+    public void mBIDECTIONAL_ASSOCIATION() // throws RecognitionException [2]
+    {
+    		try
+    		{
+            int _type = BIDECTIONAL_ASSOCIATION;
+    	int _channel = DEFAULT_TOKEN_CHANNEL;
+            // D:\\Olle\\Projects\\WikiUml\\source\\Grammar\\WikiUml.g:92:26: ( '<->' )
+            // D:\\Olle\\Projects\\WikiUml\\source\\Grammar\\WikiUml.g:92:29: '<->'
+            {
+            	Match("<->"); 
+
+
+            }
+
+            state.type = _type;
+            state.channel = _channel;
+        }
+        finally 
+    	{
+        }
+    }
+    // $ANTLR end "BIDECTIONAL_ASSOCIATION"
+
     // $ANTLR start "ID"
     public void mID() // throws RecognitionException [2]
     {
@@ -192,8 +297,8 @@ public partial class WikiUmlLexer : Lexer {
     		{
             int _type = ID;
     	int _channel = DEFAULT_TOKEN_CHANNEL;
-            // D:\\Olle\\Projects\\WikiUml\\source\\Grammar\\WikiUml.g:39:4: ( VALIDSTR )
-            // D:\\Olle\\Projects\\WikiUml\\source\\Grammar\\WikiUml.g:39:9: VALIDSTR
+            // D:\\Olle\\Projects\\WikiUml\\source\\Grammar\\WikiUml.g:94:4: ( VALIDSTR )
+            // D:\\Olle\\Projects\\WikiUml\\source\\Grammar\\WikiUml.g:94:9: VALIDSTR
             {
             	mVALIDSTR(); 
 
@@ -213,8 +318,8 @@ public partial class WikiUmlLexer : Lexer {
     {
     		try
     		{
-            // D:\\Olle\\Projects\\WikiUml\\source\\Grammar\\WikiUml.g:42:2: ( ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) )
-            // D:\\Olle\\Projects\\WikiUml\\source\\Grammar\\WikiUml.g:42:5: ( 'a' .. 'z' | 'A' .. 'Z' | '_' )
+            // D:\\Olle\\Projects\\WikiUml\\source\\Grammar\\WikiUml.g:97:2: ( ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) )
+            // D:\\Olle\\Projects\\WikiUml\\source\\Grammar\\WikiUml.g:97:5: ( 'a' .. 'z' | 'A' .. 'Z' | '_' )
             {
             	if ( (input.LA(1) >= 'A' && input.LA(1) <= 'Z') || input.LA(1) == '_' || (input.LA(1) >= 'a' && input.LA(1) <= 'z') ) 
             	{
@@ -242,23 +347,23 @@ public partial class WikiUmlLexer : Lexer {
     {
     		try
     		{
-            // D:\\Olle\\Projects\\WikiUml\\source\\Grammar\\WikiUml.g:49:5: ( ALPHACHAR ( ALPHACHAR | '0' .. '9' )* )
-            // D:\\Olle\\Projects\\WikiUml\\source\\Grammar\\WikiUml.g:49:8: ALPHACHAR ( ALPHACHAR | '0' .. '9' )*
+            // D:\\Olle\\Projects\\WikiUml\\source\\Grammar\\WikiUml.g:104:5: ( ALPHACHAR ( ALPHACHAR | '0' .. '9' )* )
+            // D:\\Olle\\Projects\\WikiUml\\source\\Grammar\\WikiUml.g:104:8: ALPHACHAR ( ALPHACHAR | '0' .. '9' )*
             {
             	mALPHACHAR(); 
-            	// D:\\Olle\\Projects\\WikiUml\\source\\Grammar\\WikiUml.g:50:9: ( ALPHACHAR | '0' .. '9' )*
+            	// D:\\Olle\\Projects\\WikiUml\\source\\Grammar\\WikiUml.g:105:9: ( ALPHACHAR | '0' .. '9' )*
             	do 
             	{
-            	    int alt1 = 2;
-            	    int LA1_0 = input.LA(1);
+            	    int alt2 = 2;
+            	    int LA2_0 = input.LA(1);
 
-            	    if ( ((LA1_0 >= '0' && LA1_0 <= '9') || (LA1_0 >= 'A' && LA1_0 <= 'Z') || LA1_0 == '_' || (LA1_0 >= 'a' && LA1_0 <= 'z')) )
+            	    if ( ((LA2_0 >= '0' && LA2_0 <= '9') || (LA2_0 >= 'A' && LA2_0 <= 'Z') || LA2_0 == '_' || (LA2_0 >= 'a' && LA2_0 <= 'z')) )
             	    {
-            	        alt1 = 1;
+            	        alt2 = 1;
             	    }
 
 
-            	    switch (alt1) 
+            	    switch (alt2) 
             		{
             			case 1 :
             			    // D:\\Olle\\Projects\\WikiUml\\source\\Grammar\\WikiUml.g:
@@ -279,12 +384,12 @@ public partial class WikiUmlLexer : Lexer {
             			    break;
 
             			default:
-            			    goto loop1;
+            			    goto loop2;
             	    }
             	} while (true);
 
-            	loop1:
-            		;	// Stops C# compiler whining that label 'loop1' has no statements
+            	loop2:
+            		;	// Stops C# compiler whining that label 'loop2' has no statements
 
 
             }
@@ -303,58 +408,58 @@ public partial class WikiUmlLexer : Lexer {
     		{
             int _type = WS;
     	int _channel = DEFAULT_TOKEN_CHANNEL;
-            // D:\\Olle\\Projects\\WikiUml\\source\\Grammar\\WikiUml.g:56:5: ( ( ' ' | '\\t' | '\\r' '\\n' | '\\n' ) )
-            // D:\\Olle\\Projects\\WikiUml\\source\\Grammar\\WikiUml.g:57:8: ( ' ' | '\\t' | '\\r' '\\n' | '\\n' )
+            // D:\\Olle\\Projects\\WikiUml\\source\\Grammar\\WikiUml.g:111:5: ( ( ' ' | '\\t' | '\\r' '\\n' | '\\n' ) )
+            // D:\\Olle\\Projects\\WikiUml\\source\\Grammar\\WikiUml.g:112:8: ( ' ' | '\\t' | '\\r' '\\n' | '\\n' )
             {
-            	// D:\\Olle\\Projects\\WikiUml\\source\\Grammar\\WikiUml.g:57:8: ( ' ' | '\\t' | '\\r' '\\n' | '\\n' )
-            	int alt2 = 4;
+            	// D:\\Olle\\Projects\\WikiUml\\source\\Grammar\\WikiUml.g:112:8: ( ' ' | '\\t' | '\\r' '\\n' | '\\n' )
+            	int alt3 = 4;
             	switch ( input.LA(1) ) 
             	{
             	case ' ':
             		{
-            	    alt2 = 1;
+            	    alt3 = 1;
             	    }
             	    break;
             	case '\t':
             		{
-            	    alt2 = 2;
+            	    alt3 = 2;
             	    }
             	    break;
             	case '\r':
             		{
-            	    alt2 = 3;
+            	    alt3 = 3;
             	    }
             	    break;
             	case '\n':
             		{
-            	    alt2 = 4;
+            	    alt3 = 4;
             	    }
             	    break;
             		default:
-            		    NoViableAltException nvae_d2s0 =
-            		        new NoViableAltException("", 2, 0, input);
+            		    NoViableAltException nvae_d3s0 =
+            		        new NoViableAltException("", 3, 0, input);
 
-            		    throw nvae_d2s0;
+            		    throw nvae_d3s0;
             	}
 
-            	switch (alt2) 
+            	switch (alt3) 
             	{
             	    case 1 :
-            	        // D:\\Olle\\Projects\\WikiUml\\source\\Grammar\\WikiUml.g:57:12: ' '
+            	        // D:\\Olle\\Projects\\WikiUml\\source\\Grammar\\WikiUml.g:112:12: ' '
             	        {
             	        	Match(' '); 
 
             	        }
             	        break;
             	    case 2 :
-            	        // D:\\Olle\\Projects\\WikiUml\\source\\Grammar\\WikiUml.g:58:12: '\\t'
+            	        // D:\\Olle\\Projects\\WikiUml\\source\\Grammar\\WikiUml.g:113:12: '\\t'
             	        {
             	        	Match('\t'); 
 
             	        }
             	        break;
             	    case 3 :
-            	        // D:\\Olle\\Projects\\WikiUml\\source\\Grammar\\WikiUml.g:59:12: '\\r' '\\n'
+            	        // D:\\Olle\\Projects\\WikiUml\\source\\Grammar\\WikiUml.g:114:12: '\\r' '\\n'
             	        {
             	        	Match('\r'); 
             	        	Match('\n'); 
@@ -362,7 +467,7 @@ public partial class WikiUmlLexer : Lexer {
             	        }
             	        break;
             	    case 4 :
-            	        // D:\\Olle\\Projects\\WikiUml\\source\\Grammar\\WikiUml.g:60:12: '\\n'
+            	        // D:\\Olle\\Projects\\WikiUml\\source\\Grammar\\WikiUml.g:115:12: '\\n'
             	        {
             	        	Match('\n'); 
 
@@ -371,6 +476,7 @@ public partial class WikiUmlLexer : Lexer {
 
             	}
 
+            	Skip();
 
             }
 
@@ -385,132 +491,29 @@ public partial class WikiUmlLexer : Lexer {
 
     override public void mTokens() // throws RecognitionException 
     {
-        // D:\\Olle\\Projects\\WikiUml\\source\\Grammar\\WikiUml.g:1:8: ( T__11 | T__12 | T__13 | RBRACK | LBRACK | SECTIONSEPPERATOR | ID | WS )
-        int alt3 = 8;
-        switch ( input.LA(1) ) 
-        {
-        case ';':
-        	{
-            alt3 = 1;
-            }
-            break;
-        case '(':
-        	{
-            alt3 = 2;
-            }
-            break;
-        case ')':
-        	{
-            alt3 = 3;
-            }
-            break;
-        case ']':
-        	{
-            alt3 = 4;
-            }
-            break;
-        case '[':
-        	{
-            alt3 = 5;
-            }
-            break;
-        case '|':
-        	{
-            alt3 = 6;
-            }
-            break;
-        case 'A':
-        case 'B':
-        case 'C':
-        case 'D':
-        case 'E':
-        case 'F':
-        case 'G':
-        case 'H':
-        case 'I':
-        case 'J':
-        case 'K':
-        case 'L':
-        case 'M':
-        case 'N':
-        case 'O':
-        case 'P':
-        case 'Q':
-        case 'R':
-        case 'S':
-        case 'T':
-        case 'U':
-        case 'V':
-        case 'W':
-        case 'X':
-        case 'Y':
-        case 'Z':
-        case '_':
-        case 'a':
-        case 'b':
-        case 'c':
-        case 'd':
-        case 'e':
-        case 'f':
-        case 'g':
-        case 'h':
-        case 'i':
-        case 'j':
-        case 'k':
-        case 'l':
-        case 'm':
-        case 'n':
-        case 'o':
-        case 'p':
-        case 'q':
-        case 'r':
-        case 's':
-        case 't':
-        case 'u':
-        case 'v':
-        case 'w':
-        case 'x':
-        case 'y':
-        case 'z':
-        	{
-            alt3 = 7;
-            }
-            break;
-        case '\t':
-        case '\n':
-        case '\r':
-        case ' ':
-        	{
-            alt3 = 8;
-            }
-            break;
-        	default:
-        	    NoViableAltException nvae_d3s0 =
-        	        new NoViableAltException("", 3, 0, input);
-
-        	    throw nvae_d3s0;
-        }
-
-        switch (alt3) 
+        // D:\\Olle\\Projects\\WikiUml\\source\\Grammar\\WikiUml.g:1:8: ( T__14 | T__15 | T__16 | RBRACK | LBRACK | SECTIONSEPPERATOR | SIMPLE_ASSOCIATION | DIRECTIONAL_ASSOCIATION | BIDECTIONAL_ASSOCIATION | ID | WS )
+        int alt4 = 11;
+        alt4 = dfa4.Predict(input);
+        switch (alt4) 
         {
             case 1 :
-                // D:\\Olle\\Projects\\WikiUml\\source\\Grammar\\WikiUml.g:1:10: T__11
+                // D:\\Olle\\Projects\\WikiUml\\source\\Grammar\\WikiUml.g:1:10: T__14
                 {
-                	mT__11(); 
+                	mT__14(); 
 
                 }
                 break;
             case 2 :
-                // D:\\Olle\\Projects\\WikiUml\\source\\Grammar\\WikiUml.g:1:16: T__12
+                // D:\\Olle\\Projects\\WikiUml\\source\\Grammar\\WikiUml.g:1:16: T__15
                 {
-                	mT__12(); 
+                	mT__15(); 
 
                 }
                 break;
             case 3 :
-                // D:\\Olle\\Projects\\WikiUml\\source\\Grammar\\WikiUml.g:1:22: T__13
+                // D:\\Olle\\Projects\\WikiUml\\source\\Grammar\\WikiUml.g:1:22: T__16
                 {
-                	mT__13(); 
+                	mT__16(); 
 
                 }
                 break;
@@ -536,14 +539,35 @@ public partial class WikiUmlLexer : Lexer {
                 }
                 break;
             case 7 :
-                // D:\\Olle\\Projects\\WikiUml\\source\\Grammar\\WikiUml.g:1:60: ID
+                // D:\\Olle\\Projects\\WikiUml\\source\\Grammar\\WikiUml.g:1:60: SIMPLE_ASSOCIATION
+                {
+                	mSIMPLE_ASSOCIATION(); 
+
+                }
+                break;
+            case 8 :
+                // D:\\Olle\\Projects\\WikiUml\\source\\Grammar\\WikiUml.g:1:79: DIRECTIONAL_ASSOCIATION
+                {
+                	mDIRECTIONAL_ASSOCIATION(); 
+
+                }
+                break;
+            case 9 :
+                // D:\\Olle\\Projects\\WikiUml\\source\\Grammar\\WikiUml.g:1:103: BIDECTIONAL_ASSOCIATION
+                {
+                	mBIDECTIONAL_ASSOCIATION(); 
+
+                }
+                break;
+            case 10 :
+                // D:\\Olle\\Projects\\WikiUml\\source\\Grammar\\WikiUml.g:1:127: ID
                 {
                 	mID(); 
 
                 }
                 break;
-            case 8 :
-                // D:\\Olle\\Projects\\WikiUml\\source\\Grammar\\WikiUml.g:1:63: WS
+            case 11 :
+                // D:\\Olle\\Projects\\WikiUml\\source\\Grammar\\WikiUml.g:1:130: WS
                 {
                 	mWS(); 
 
@@ -555,9 +579,76 @@ public partial class WikiUmlLexer : Lexer {
     }
 
 
+    protected DFA4 dfa4;
 	private void InitializeCyclicDFAs()
 	{
+	    this.dfa4 = new DFA4(this);
 	}
+
+    const string DFA4_eotS =
+        "\x07\uffff\x01\x0c\x05\uffff\x01\x0b\x01\uffff";
+    const string DFA4_eofS =
+        "\x0f\uffff";
+    const string DFA4_minS =
+        "\x01\x09\x06\uffff\x01\x3e\x01\x2d\x04\uffff\x01\x3e\x01\uffff";
+    const string DFA4_maxS =
+        "\x01\x7c\x06\uffff\x01\x3e\x01\x2d\x04\uffff\x01\x3e\x01\uffff";
+    const string DFA4_acceptS =
+        "\x01\uffff\x01\x01\x01\x02\x01\x03\x01\x04\x01\x05\x01\x06\x02"+
+        "\uffff\x01\x0a\x01\x0b\x01\x08\x01\x07\x01\uffff\x01\x09";
+    const string DFA4_specialS =
+        "\x0f\uffff}>";
+    static readonly string[] DFA4_transitionS = {
+            "\x02\x0a\x02\uffff\x01\x0a\x12\uffff\x01\x0a\x07\uffff\x01"+
+            "\x02\x01\x03\x03\uffff\x01\x07\x0d\uffff\x01\x01\x01\x08\x04"+
+            "\uffff\x1a\x09\x01\x05\x01\uffff\x01\x04\x01\uffff\x01\x09\x01"+
+            "\uffff\x1a\x09\x01\uffff\x01\x06",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "\x01\x0b",
+            "\x01\x0d",
+            "",
+            "",
+            "",
+            "",
+            "\x01\x0e",
+            ""
+    };
+
+    static readonly short[] DFA4_eot = DFA.UnpackEncodedString(DFA4_eotS);
+    static readonly short[] DFA4_eof = DFA.UnpackEncodedString(DFA4_eofS);
+    static readonly char[] DFA4_min = DFA.UnpackEncodedStringToUnsignedChars(DFA4_minS);
+    static readonly char[] DFA4_max = DFA.UnpackEncodedStringToUnsignedChars(DFA4_maxS);
+    static readonly short[] DFA4_accept = DFA.UnpackEncodedString(DFA4_acceptS);
+    static readonly short[] DFA4_special = DFA.UnpackEncodedString(DFA4_specialS);
+    static readonly short[][] DFA4_transition = DFA.UnpackEncodedStringArray(DFA4_transitionS);
+
+    protected class DFA4 : DFA
+    {
+        public DFA4(BaseRecognizer recognizer)
+        {
+            this.recognizer = recognizer;
+            this.decisionNumber = 4;
+            this.eot = DFA4_eot;
+            this.eof = DFA4_eof;
+            this.min = DFA4_min;
+            this.max = DFA4_max;
+            this.accept = DFA4_accept;
+            this.special = DFA4_special;
+            this.transition = DFA4_transition;
+
+        }
+
+        override public string Description
+        {
+            get { return "1:1: Tokens : ( T__14 | T__15 | T__16 | RBRACK | LBRACK | SECTIONSEPPERATOR | SIMPLE_ASSOCIATION | DIRECTIONAL_ASSOCIATION | BIDECTIONAL_ASSOCIATION | ID | WS );"; }
+        }
+
+    }
 
  
     
