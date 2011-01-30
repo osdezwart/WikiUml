@@ -76,11 +76,12 @@ member 	returns [Member member] @init{member = new Member();}:	i = ID {member.Na
 methods returns [List<Method> methods] @init{methods = new List<Method>();} :	SECTIONSEPPERATOR (m = method ';'?)*{if(m != null) methods.Add(m);};
 method 	returns [Method method] @init{method = new Method();} :	m = ID'('')'{method.Name= $m.text;};
 
-association returns [Association association] @init{association = new Association();} : a = (SIMPLE_ASSOCIATION | DIRECTIONAL_ASSOCIATION |  BIDECTIONAL_ASSOCIATION) 
+association returns [Association association] @init{association = new Association();} : a = (SIMPLE_ASSOCIATION | DIRECTIONAL_ASSOCIATION |  BIDECTIONAL_ASSOCIATION | INHERRITANCE_ASSOCIATION) 
 {
 	if(a.Type == SIMPLE_ASSOCIATION) association.Type = AssociationType.Simple; 
 	else if(a.Type == DIRECTIONAL_ASSOCIATION) association.Type = AssociationType.Directional;
 	else if(a.Type == BIDECTIONAL_ASSOCIATION) association.Type = AssociationType.Bidirectional;	
+	else if(a.Type == INHERRITANCE_ASSOCIATION) association.Type = AssociationType.Inherritance;	
 };
 
 RBRACK 	:	 ']';
@@ -90,6 +91,7 @@ SECTIONSEPPERATOR : '|';
 SIMPLE_ASSOCIATION 	:	 '-';
 DIRECTIONAL_ASSOCIATION 	:	 '<-' | '->';	
 BIDECTIONAL_ASSOCIATION 	:	 '<->';
+INHERRITANCE_ASSOCIATION 	:	 '^-';
 
 ID	:    VALIDSTR;
        

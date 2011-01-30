@@ -1,4 +1,4 @@
-// $ANTLR 3.1.1 D:\\Olle\\Projects\\WikiUml\\source\\Grammar\\WikiUml.g 2011-01-30 15:59:24
+// $ANTLR 3.1.1 D:\\Olle\\Projects\\WikiUml\\source\\Grammar\\WikiUml.g 2011-01-30 16:09:29
 // The variable 'variable' is assigned but its value is never used.
 #pragma warning disable 168, 219
 // Unreachable code detected.
@@ -33,6 +33,7 @@ public partial class WikiUmlParser : Parser
 		"SIMPLE_ASSOCIATION", 
 		"DIRECTIONAL_ASSOCIATION", 
 		"BIDECTIONAL_ASSOCIATION", 
+		"INHERRITANCE_ASSOCIATION", 
 		"VALIDSTR", 
 		"ALPHACHAR", 
 		"';'", 
@@ -41,18 +42,19 @@ public partial class WikiUmlParser : Parser
     };
 
     public const int RBRACK = 7;
+    public const int INHERRITANCE_ASSOCIATION = 12;
     public const int LBRACK = 5;
     public const int T__16 = 16;
     public const int WS = 4;
     public const int T__15 = 15;
     public const int BIDECTIONAL_ASSOCIATION = 11;
-    public const int T__14 = 14;
+    public const int T__17 = 17;
     public const int SIMPLE_ASSOCIATION = 9;
-    public const int ALPHACHAR = 13;
+    public const int ALPHACHAR = 14;
     public const int SECTIONSEPPERATOR = 8;
     public const int ID = 6;
     public const int EOF = -1;
-    public const int VALIDSTR = 12;
+    public const int VALIDSTR = 13;
     public const int DIRECTIONAL_ASSOCIATION = 10;
 
     // delegates
@@ -242,7 +244,7 @@ public partial class WikiUmlParser : Parser
             	    int alt4 = 2;
             	    int LA4_0 = input.LA(1);
 
-            	    if ( ((LA4_0 >= SIMPLE_ASSOCIATION && LA4_0 <= BIDECTIONAL_ASSOCIATION)) )
+            	    if ( ((LA4_0 >= SIMPLE_ASSOCIATION && LA4_0 <= INHERRITANCE_ASSOCIATION)) )
             	    {
             	        alt4 = 1;
             	    }
@@ -457,7 +459,7 @@ public partial class WikiUmlParser : Parser
             			    	int alt7 = 2;
             			    	int LA7_0 = input.LA(1);
 
-            			    	if ( (LA7_0 == 14) )
+            			    	if ( (LA7_0 == 15) )
             			    	{
             			    	    alt7 = 1;
             			    	}
@@ -466,7 +468,7 @@ public partial class WikiUmlParser : Parser
             			    	    case 1 :
             			    	        // D:\\Olle\\Projects\\WikiUml\\source\\Grammar\\WikiUml.g:73:109: ';'
             			    	        {
-            			    	        	Match(input,14,FOLLOW_14_in_members175); 
+            			    	        	Match(input,15,FOLLOW_15_in_members175); 
 
             			    	        }
             			    	        break;
@@ -577,7 +579,7 @@ public partial class WikiUmlParser : Parser
             			    	int alt9 = 2;
             			    	int LA9_0 = input.LA(1);
 
-            			    	if ( (LA9_0 == 14) )
+            			    	if ( (LA9_0 == 15) )
             			    	{
             			    	    alt9 = 1;
             			    	}
@@ -586,7 +588,7 @@ public partial class WikiUmlParser : Parser
             			    	    case 1 :
             			    	        // D:\\Olle\\Projects\\WikiUml\\source\\Grammar\\WikiUml.g:76:109: ';'
             			    	        {
-            			    	        	Match(input,14,FOLLOW_14_in_methods225); 
+            			    	        	Match(input,15,FOLLOW_15_in_methods225); 
 
             			    	        }
             			    	        break;
@@ -638,8 +640,8 @@ public partial class WikiUmlParser : Parser
             // D:\\Olle\\Projects\\WikiUml\\source\\Grammar\\WikiUml.g:77:65: m= ID '(' ')'
             {
             	m=(IToken)Match(input,ID,FOLLOW_ID_in_method249); 
-            	Match(input,15,FOLLOW_15_in_method250); 
-            	Match(input,16,FOLLOW_16_in_method251); 
+            	Match(input,16,FOLLOW_16_in_method250); 
+            	Match(input,17,FOLLOW_17_in_method251); 
             	method.Name= ((m != null) ? m.Text : null);
 
             }
@@ -659,7 +661,7 @@ public partial class WikiUmlParser : Parser
 
 
     // $ANTLR start "association"
-    // D:\\Olle\\Projects\\WikiUml\\source\\Grammar\\WikiUml.g:79:1: association returns [Association association] : a= ( SIMPLE_ASSOCIATION | DIRECTIONAL_ASSOCIATION | BIDECTIONAL_ASSOCIATION ) ;
+    // D:\\Olle\\Projects\\WikiUml\\source\\Grammar\\WikiUml.g:79:1: association returns [Association association] : a= ( SIMPLE_ASSOCIATION | DIRECTIONAL_ASSOCIATION | BIDECTIONAL_ASSOCIATION | INHERRITANCE_ASSOCIATION ) ;
     public Association association() // throws RecognitionException [1]
     {   
         Association association = default(Association);
@@ -669,11 +671,11 @@ public partial class WikiUmlParser : Parser
         association = new Association();
         try 
     	{
-            // D:\\Olle\\Projects\\WikiUml\\source\\Grammar\\WikiUml.g:79:87: (a= ( SIMPLE_ASSOCIATION | DIRECTIONAL_ASSOCIATION | BIDECTIONAL_ASSOCIATION ) )
-            // D:\\Olle\\Projects\\WikiUml\\source\\Grammar\\WikiUml.g:79:89: a= ( SIMPLE_ASSOCIATION | DIRECTIONAL_ASSOCIATION | BIDECTIONAL_ASSOCIATION )
+            // D:\\Olle\\Projects\\WikiUml\\source\\Grammar\\WikiUml.g:79:87: (a= ( SIMPLE_ASSOCIATION | DIRECTIONAL_ASSOCIATION | BIDECTIONAL_ASSOCIATION | INHERRITANCE_ASSOCIATION ) )
+            // D:\\Olle\\Projects\\WikiUml\\source\\Grammar\\WikiUml.g:79:89: a= ( SIMPLE_ASSOCIATION | DIRECTIONAL_ASSOCIATION | BIDECTIONAL_ASSOCIATION | INHERRITANCE_ASSOCIATION )
             {
             	a = (IToken)input.LT(1);
-            	if ( (input.LA(1) >= SIMPLE_ASSOCIATION && input.LA(1) <= BIDECTIONAL_ASSOCIATION) ) 
+            	if ( (input.LA(1) >= SIMPLE_ASSOCIATION && input.LA(1) <= INHERRITANCE_ASSOCIATION) ) 
             	{
             	    input.Consume();
             	    state.errorRecovery = false;
@@ -688,6 +690,7 @@ public partial class WikiUmlParser : Parser
             		if(a.Type == SIMPLE_ASSOCIATION) association.Type = AssociationType.Simple; 
             		else if(a.Type == DIRECTIONAL_ASSOCIATION) association.Type = AssociationType.Directional;
             		else if(a.Type == BIDECTIONAL_ASSOCIATION) association.Type = AssociationType.Bidirectional;	
+            		else if(a.Type == INHERRITANCE_ASSOCIATION) association.Type = AssociationType.Inherritance;	
 
 
             }
@@ -717,24 +720,24 @@ public partial class WikiUmlParser : Parser
     public static readonly BitSet FOLLOW_associated_classes_in_diagram62 = new BitSet(new ulong[]{0x0000000000000030UL});
     public static readonly BitSet FOLLOW_EOF_in_diagram66 = new BitSet(new ulong[]{0x0000000000000002UL});
     public static readonly BitSet FOLLOW_WS_in_associated_classes85 = new BitSet(new ulong[]{0x0000000000000030UL});
-    public static readonly BitSet FOLLOW_umlclass_in_associated_classes90 = new BitSet(new ulong[]{0x0000000000000E02UL});
+    public static readonly BitSet FOLLOW_umlclass_in_associated_classes90 = new BitSet(new ulong[]{0x0000000000001E02UL});
     public static readonly BitSet FOLLOW_association_in_associated_classes97 = new BitSet(new ulong[]{0x0000000000000030UL});
-    public static readonly BitSet FOLLOW_umlclass_in_associated_classes101 = new BitSet(new ulong[]{0x0000000000000E02UL});
+    public static readonly BitSet FOLLOW_umlclass_in_associated_classes101 = new BitSet(new ulong[]{0x0000000000001E02UL});
     public static readonly BitSet FOLLOW_LBRACK_in_umlclass123 = new BitSet(new ulong[]{0x00000000000001C0UL});
     public static readonly BitSet FOLLOW_ID_in_umlclass129 = new BitSet(new ulong[]{0x0000000000000180UL});
     public static readonly BitSet FOLLOW_members_in_umlclass137 = new BitSet(new ulong[]{0x0000000000000100UL});
     public static readonly BitSet FOLLOW_methods_in_umlclass143 = new BitSet(new ulong[]{0x0000000000000080UL});
     public static readonly BitSet FOLLOW_RBRACK_in_umlclass147 = new BitSet(new ulong[]{0x0000000000000002UL});
     public static readonly BitSet FOLLOW_SECTIONSEPPERATOR_in_members166 = new BitSet(new ulong[]{0x0000000000000042UL});
-    public static readonly BitSet FOLLOW_member_in_members173 = new BitSet(new ulong[]{0x0000000000004042UL});
-    public static readonly BitSet FOLLOW_14_in_members175 = new BitSet(new ulong[]{0x0000000000000042UL});
+    public static readonly BitSet FOLLOW_member_in_members173 = new BitSet(new ulong[]{0x0000000000008042UL});
+    public static readonly BitSet FOLLOW_15_in_members175 = new BitSet(new ulong[]{0x0000000000000042UL});
     public static readonly BitSet FOLLOW_ID_in_member198 = new BitSet(new ulong[]{0x0000000000000002UL});
     public static readonly BitSet FOLLOW_SECTIONSEPPERATOR_in_methods216 = new BitSet(new ulong[]{0x0000000000000042UL});
-    public static readonly BitSet FOLLOW_method_in_methods223 = new BitSet(new ulong[]{0x0000000000004042UL});
-    public static readonly BitSet FOLLOW_14_in_methods225 = new BitSet(new ulong[]{0x0000000000000042UL});
-    public static readonly BitSet FOLLOW_ID_in_method249 = new BitSet(new ulong[]{0x0000000000008000UL});
-    public static readonly BitSet FOLLOW_15_in_method250 = new BitSet(new ulong[]{0x0000000000010000UL});
-    public static readonly BitSet FOLLOW_16_in_method251 = new BitSet(new ulong[]{0x0000000000000002UL});
+    public static readonly BitSet FOLLOW_method_in_methods223 = new BitSet(new ulong[]{0x0000000000008042UL});
+    public static readonly BitSet FOLLOW_15_in_methods225 = new BitSet(new ulong[]{0x0000000000000042UL});
+    public static readonly BitSet FOLLOW_ID_in_method249 = new BitSet(new ulong[]{0x0000000000010000UL});
+    public static readonly BitSet FOLLOW_16_in_method250 = new BitSet(new ulong[]{0x0000000000020000UL});
+    public static readonly BitSet FOLLOW_17_in_method251 = new BitSet(new ulong[]{0x0000000000000002UL});
     public static readonly BitSet FOLLOW_set_in_association272 = new BitSet(new ulong[]{0x0000000000000002UL});
 
 }

@@ -117,19 +117,40 @@ namespace WikiUml.Test
         [Test]
         public void parsing_diagram_with_unidirectional_association_between_two_classes_should_return_two_associated_classes()
         {
-            Assert.Fail("TO BE IMPLEMENTED");
+            var diagram = ParseWikiUml("[Foo]->[Bar]");
+
+            Assert.AreEqual(2, diagram.umlClasses.Count);
+            Assert.AreEqual(AssociationType.Directional, diagram.umlClasses[0].Associations[0].Type);
+            Assert.AreEqual(AssociationType.Directional, diagram.umlClasses[1].Associations[0].Type);
+            
+            Assert.AreEqual(diagram.umlClasses[0], diagram.umlClasses[0].Associations[0].UmlClassA);
+            Assert.AreEqual(diagram.umlClasses[1], diagram.umlClasses[1].Associations[0].UmlClassB);
         }
 
         [Test]
         public void parsing_diagram_with_bidirectional_association_between_two_classes_should_return_two_associated_classes()
         {
-            Assert.Fail("TO BE IMPLEMENTED");
+            var diagram = ParseWikiUml("[Foo]<->[Bar]");
+
+            Assert.AreEqual(2, diagram.umlClasses.Count);
+            Assert.AreEqual(AssociationType.Bidirectional, diagram.umlClasses[0].Associations[0].Type);
+            Assert.AreEqual(AssociationType.Bidirectional, diagram.umlClasses[1].Associations[0].Type);
+
+            Assert.AreEqual(diagram.umlClasses[0], diagram.umlClasses[0].Associations[0].UmlClassA);
+            Assert.AreEqual(diagram.umlClasses[1], diagram.umlClasses[1].Associations[0].UmlClassB);
         }
 
         [Test]
         public void parsing_diagram_with_inheritance_association_between_two_classes_should_return_two_associated_classes()
         {
-            Assert.Fail("TO BE IMPLEMENTED");
+            var diagram = ParseWikiUml("[Foo]^-[Bar]");
+
+            Assert.AreEqual(2, diagram.umlClasses.Count);
+            Assert.AreEqual(AssociationType.Inherritance, diagram.umlClasses[0].Associations[0].Type);
+            Assert.AreEqual(AssociationType.Inherritance, diagram.umlClasses[1].Associations[0].Type);
+
+            Assert.AreEqual(diagram.umlClasses[0], diagram.umlClasses[0].Associations[0].UmlClassA);
+            Assert.AreEqual(diagram.umlClasses[1], diagram.umlClasses[1].Associations[0].UmlClassB);
         }
 
         private Diagram ParseWikiUml(string wikiUml)
